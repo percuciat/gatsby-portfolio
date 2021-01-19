@@ -10,7 +10,7 @@ This app contains many Gatsby configuration files.
 
 2.  **add strapi server**,
 
-- 2.1  **first of all install strapi [strapi](https://strapi.io/starters)**
+- 2.1  **first of all, install [strapi](https://strapi.io/starters)**
 
 - 2.2  **change connect in this project's file "gatsby-config.js"**
 
