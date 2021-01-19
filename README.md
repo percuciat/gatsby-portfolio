@@ -8,9 +8,9 @@ This app contains many Gatsby configuration files.
 
 1.  **npm i**
 
-2.  **add strapi server**, 
-   
-2.1  **first of all install strapi [strapi](https://strapi.io/starters)**
+2.  **add strapi server**,
+
+- 2.1  **first of all install strapi [strapi](https://strapi.io/starters)**
 
 - 2.2  **change connect in this project's file "gatsby-config.js"**
 
@@ -26,7 +26,6 @@ This app contains many Gatsby configuration files.
     ```
 
 - 2.3 you need to have account in strapi or to create it in [official page strapi](https://strapi.io/)
-
 
 3.  **npm run develop** strapi server first and in another terminal at the same time run your gatsby **npm run develop**
 
