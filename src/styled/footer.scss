@@ -1,0 +1,20 @@
+.footer {
+  padding: 1rem 0;
+  box-shadow: var(--light-shadow);
+  background: var(--whiteColor);
+  &__wrapper{
+    text-align: center;
+    display: grid;
+    place-items: center;
+  }
+  &__title{
+    line-height: 1.3rem;
+    color: var(--boldColor);
+    .text{
+      color: var(--attentionColor);
+    }
+  }
+}
+.footer .social__list{
+  margin-top: 0;
+}

@@ -1,0 +1,142 @@
+.projects {
+	background: var(--clr-grey-10);
+
+	&__wrapper {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-column-gap: 20px;
+		column-gap: 20px;
+		row-gap: 20px;
+		grid-row-gap: 20px;
+	}
+
+	&__img {
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
+	}
+
+	&__item {
+		display: grid;
+		grid-template-rows: 300px 1fr;
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
+		animation: fadeInFilter .8s ease;
+		transition: var(--transition);
+
+		&:hover {
+			transform: scale(1.02);
+		}
+	}
+
+	&__info {
+		min-height: 200px;
+		padding: 2rem;
+		background: var(--whiteColor);
+	}
+
+	&__link {
+		font-weight: 700;
+		color: var(--attentionColor);
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&__description {
+		margin: 10px 0;
+		color: var(--clr-grey-3);
+	}
+}
+
+.project-single {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-column-gap: 2rem;
+	column-gap: 2rem;
+
+	&__picture {
+		display: grid;
+		grid-row-gap: 1rem;
+		row-gap: 1rem;
+	}
+
+	&__links {
+		margin-top: 15px;
+		display: flex;
+
+		.link {
+			color: var(--attentionColor);
+		}
+
+		.item {
+			margin-right: 1rem;
+		}
+	}
+
+	&__icon {
+		color: var(--attentionColor);
+		font-size: 1.8rem;
+		margin-right: 0.5rem;
+		transition: var(--transition);
+
+		&:hover {
+			color: var(--clr-primary-1);
+		}
+	}
+
+	&__stack {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+
+		&-item {
+			display: inline-block;
+			background: var(--grayDarkColor);
+			color: var(--grayColor);
+			margin-right: 0.5rem;
+			margin-top: 0.5rem;
+			padding: 0.25rem 0.5rem;
+			border-radius: var(--radius);
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			font-size: 0.85rem;
+		}
+	}
+}
+
+
+@media screen and (max-width: 900px) {
+	.projects__info {
+		padding: 1rem;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.projects__item {
+		grid-template-rows: 150px 2fr;
+	}
+	.project-single__wrapper,
+	.project-single{
+		grid-template-columns: 1fr;
+		grid-column-gap: 0;
+		column-gap: 0;
+		grid-row-gap: 2rem;
+		row-gap: 2rem;
+	}
+	.projects__info {
+		grid-template-rows: 1fr 4fr 1fr 1fr;
+		row-gap: 10px;
+		grid-row-gap: 10px;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.projects__info {
+		grid-template-rows: auto;
+		row-gap: 20px;
+		grid-row-gap: 20px;
+	}
+	.projects__wrapper {
+		grid-template-columns: 1fr;
+	}
+}
+

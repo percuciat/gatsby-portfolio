@@ -5,3 +5,13 @@
  */
 
 // You can delete this file if you're not using it
+// const React = require("react");
+// const GlobalContextProvider = require("./src/stateManager/store");
+//
+// exports.wrapRootElement = ({element}) => {
+//   return (
+//     <GlobalContextProvider>
+//       {element}
+//     </GlobalContextProvider>
+//   )
+// };

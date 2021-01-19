@@ -4,4 +4,15 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-// You can delete this file if you're not using it
+import React from "react"
+import { GlobalContextProvider } from "./src/stateManager/store";
+import "./src/styled/global.scss"
+
+export const wrapRootElement = ({element}) => {
+  return (
+    <GlobalContextProvider>
+      {element}
+    </GlobalContextProvider>
+  )
+};
+
