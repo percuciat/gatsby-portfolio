@@ -11,7 +11,16 @@ const Preview = () => {
       childImageSharp: { fluid },
     },
   } = useStaticQuery(query);
-  const width = window.matchMedia("(max-width: 767px)");
+
+  const [width, setWidth] = React.useState(false);
+  React.useEffect(() => {
+    const width = window.matchMedia("(max-width: 767px)");
+    if (width.matches) {
+      setWidth(true)
+    }
+
+  }, []);
+
   return (
     <section className="preview section bg-grey">
         <div className="container preview__wrapper">
@@ -26,7 +35,7 @@ const Preview = () => {
             <SocialLinks />
           </div>
           {
-            !width.matches && <Image fluid={fluid} className="preview__img"/>
+            !width && <Image fluid={fluid} className="preview__img"/>
           }
         </div>
     </section>
@@ -34,7 +43,7 @@ const Preview = () => {
 };
 
 const query = graphql`{
-    file(relativePath: {eq: "hero-img3.png"}) {
+    file(relativePath: {eq: "myPhoto.png"}) {
         childImageSharp {
             fluid {
                 ...GatsbyImageSharpFluid

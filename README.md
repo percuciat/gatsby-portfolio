@@ -44,7 +44,6 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
 A quick look at the top-level files and directories you'll see in a Gatsby project.
 
-    .
     ├── node_modules
     ├── src
     ├── .gitignore
@@ -57,6 +56,7 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
     ├── package-lock.json
     ├── package.json
     └── README.md
+
 
 1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 

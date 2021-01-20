@@ -9,7 +9,14 @@ import { openMenu } from "../stateManager/actions";
 
 
 const Header = React.memo(({ toggleSidebar, isDark, dispatch }) => {
-  const width = window.matchMedia("(max-width: 767px)");
+  const [width, setWidth] = React.useState(false);
+  React.useEffect(() => {
+    const width = window.matchMedia("(max-width: 767px)");
+    if (width.matches) {
+      setWidth(true)
+    }
+
+  }, []);
   const handleOpenMenu = () => {
     dispatch(openMenu(!toggleSidebar));
   };
@@ -22,13 +29,13 @@ const Header = React.memo(({ toggleSidebar, isDark, dispatch }) => {
             <span className="secondPart">Semenov</span>
           </AniLink>
           {
-            width.matches && <button type="button"
+            width && <button type="button"
                                      className="toggleBtn"
                                      onClick={handleOpenMenu}>
               <FaAlignRight/>
             </button>
           }
-          {!width.matches && <MenuLinks isDark={isDark}/>}
+          {!width && <MenuLinks isDark={isDark}/>}
         </nav>
         <SwitcherTheme/>
       </div>
