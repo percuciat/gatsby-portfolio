@@ -30,4 +30,4 @@ This app contains many Gatsby configuration files.
 
 3.  **npm run develop** strapi server first and in another terminal at the same time run your gatsby **npm run develop**
 
-   
+   [project](https://blog.maksim-semenov.ru/)
