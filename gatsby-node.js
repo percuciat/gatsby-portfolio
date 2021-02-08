@@ -6,7 +6,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const  result   = await graphql(`
     {
-      blogs: allStrapiBlogs {
+      blog: allStrapiBlogs {
         nodes {
           slug
         }
@@ -20,9 +20,9 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  result.data.blogs.nodes.forEach(blog => {
+  result.data.blog.nodes.forEach(blog => {
     createPage({
-      path: `/blogs/${blog.slug}`,
+      path: `/blog/${blog.slug}`,
       component: path.resolve(`src/templates/blogs-template.js`),
       context: {
         slug: blog.slug,

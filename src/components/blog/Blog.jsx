@@ -21,7 +21,9 @@ const Blog = ({ strapiId, title, image, date, category, slug, descriptionCard, }
             <p className="footer-item footer-category">{category}</p>
             <p className="footer-item">{date}</p>
           </div>
-          <AniLink swipe direction="left" to={`/blogs/${slug}`} className="blog__card-btn">Читать подробнее</AniLink>
+          <AniLink swipe direction="left"
+                   to={`/blog/${slug}`}
+                   className="blog__card-btn">Читать подробнее</AniLink>
         </figcaption>
       </figure>
     </li>

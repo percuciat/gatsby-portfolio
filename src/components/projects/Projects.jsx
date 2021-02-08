@@ -38,7 +38,10 @@ const Projects = ({ projects, title, showLink }) => {
           }
       </ul>
       {
-          showLink && <AniLink swipe direction="left" to="/projects" className="btn center-btn">
+          showLink && <AniLink swipe
+                               direction="left"
+                               to="/projects/"
+                               className="btn center-btn">
             Смотреть больше
           </AniLink>
       }

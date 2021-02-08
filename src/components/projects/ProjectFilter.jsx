@@ -46,9 +46,9 @@ const ProjectFilter = ({activeCategory, changeCategory}) => {
   </>
 };
 
-ProjectFilter.propTypes = {
-  activeCategory: PropTypes.string | number.isRequired,
-};
+/*ProjectFilter.propTypes = {
+  activeCategory: PropTypes.string | number,
+};*/
 ProjectFilter.defaultProps = {
   activeCategory: ''
 };

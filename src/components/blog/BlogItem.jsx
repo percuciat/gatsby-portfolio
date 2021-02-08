@@ -36,7 +36,12 @@ const BlogItem = ({ blogItem, title, showLink }) => {
         </ul>
         {
           showLink && (
-            <AniLink swipe direction="right" to="/blog" className="btn center-btn">
+            <AniLink swipe
+                     direction="right"
+                     to="/blog/"
+                     partiallyActive={true}
+                     activeClassName="current"
+                     className="btn center-btn">
               Смотреть еще
             </AniLink>
           )

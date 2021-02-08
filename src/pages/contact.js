@@ -32,10 +32,12 @@ const Contact = () => {
     <Layout>
       <SEO title="Контакты" />
       <section className="contact">
-        <Title title="Контакты" />
-        <div className="contact__form">
-          <Form handleSubmitForm={submitForm}
-                answer={sendStatus}/>
+        <div className="container">
+          <Title title="Контакты" />
+          <div className="contact__form">
+            <Form handleSubmitForm={submitForm}
+                  answer={sendStatus}/>
+          </div>
         </div>
       </section>
     </Layout>

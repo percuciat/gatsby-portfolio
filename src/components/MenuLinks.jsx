@@ -4,22 +4,22 @@ const data = [
   {
     id: 1,
     text: "Обо мне",
-    url: "/about/",
+    url: "/about",
   },
   {
     id: 2,
     text: "Портфолио",
-    url: "/projects/",
+    url: "/projects",
   },
   {
     id: 3,
     text: "Полезности",
-    url: "/blog/",
+    url: "/blog",
   },
   {
     id: 4,
     text: "Контакты",
-    url: "/contact/",
+    url: "/contact",
   },
 ];
 
@@ -33,6 +33,7 @@ const MenuLinks = ({ asideLinks, closeMenuAfterLinking }) => {
             <li className="menu__item" key={link.id}>
               <AniLink paintDrip hex="#663399"
                        className="menu-item__link"
+                       partiallyActive={true}
                        activeClassName="current"
                        onClick={closeMenuAfterLinking}
                        to={link.url}>{link.text}</AniLink>
