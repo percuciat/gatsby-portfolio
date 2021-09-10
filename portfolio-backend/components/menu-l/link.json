@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_menu_l_links",
+  "info": {
+    "name": "link",
+    "icon": "unlink"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "text_eng": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

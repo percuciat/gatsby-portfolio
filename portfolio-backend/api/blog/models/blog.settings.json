@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blogs",
+  "info": {
+    "name": "blogs",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "content": {
+      "type": "richtext",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "coding",
+        "hobby",
+        "other"
+      ],
+      "default": "coding",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "date": {
+      "type": "date",
+      "pluginOptions": {}
+    },
+    "title_eng": {
+      "type": "string"
+    },
+    "content_eng": {
+      "type": "richtext"
+    },
+    "description_eng": {
+      "type": "string"
+    }
+  }
+}
