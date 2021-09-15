@@ -37,12 +37,12 @@ module.exports = {
       },
       __key: "images",
     },
-    {
+  /*  {
       resolve: "gatsby-plugin-offline",
       options: {
-        precachePages: ["/about/", "/projects/*", "/blog/*", "/contact/"],
+        precachePages: ["/about/", "/projects/!*", "/blog/!*", "/contact/"],
       },
-    },
+    },*/
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",

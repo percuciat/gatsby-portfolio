@@ -1,22 +1,13 @@
 import axios from 'axios';
 
 export function request(method, url, options) {
-  const {
-    data = {},
-    before,
-    success,
-    error,
-    headers = {},
-    baseURL = '',
-  } = options;
+  const { data = {}, before, success, error } = options;
 
   before();
 
   return axios({
     method,
-    baseURL,
     url,
-    headers,
     data: method === 'get' ? {} : data,
   })
     .then((response) => {
@@ -29,8 +20,5 @@ export function request(method, url, options) {
     });
 }
 
-export const get = (...args) => request('get', ...args);
-export const post = (...args) => request('post', ...args);
-export const put = (...args) => request('put', ...args);
-export const patch = (...args) => request('patch', ...args);
-export const del = (...args) => request('delete', ...args);
+export const get = (...params) => request('get', ...params);
+export const post = (...params) => request('post', ...params);
