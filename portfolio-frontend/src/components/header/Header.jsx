@@ -4,14 +4,14 @@ import { FaAlignRight } from "react-icons/fa";
 import { openMenu } from "../../stateManager/actions";
 import { MenuLinks, Switchers } from "../../components";
 import "./header.scss";
-import { NAME_LOGO, BODY, TABLET_MEDIA, MOBILE_MEDIA } from "../../consts";
+import { NAME_LOGO, TABLET_MEDIA, MOBILE_MEDIA } from "../../consts";
 import { isCorrectMediaScreen } from "../../utils/isCorrectMediaScreen";
 
 
 const Header = ({ toggleSidebar, isDark, isRu, dispatch, widthScreen }) => {
   const handleOpenMenu = () => {
     dispatch(openMenu(!toggleSidebar));
-    BODY.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
   };
 
   return (

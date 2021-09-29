@@ -2,13 +2,20 @@ import React from "react";
 import { Header, Sidebar, Footer } from "../components";
 import { Seo } from "../Seo";
 import { ContextApp } from "../stateManager/store";
+import { setWindowSize } from "../stateManager/actions";
 import { useResizeWindow } from "../hooks/useResizeWindow";
 import "../styled/global.scss";
 import "normalize.css";
 
 const Layout = ({seoData, children}) => {
   const {state: {isRu, isDark, isMenuOpen, widthScreen}, dispatch} = React.useContext(ContextApp);
+
+  React.useEffect(() => {
+    dispatch(setWindowSize(window.innerWidth));
+  }, [])
+
   useResizeWindow();
+
   return (
     <div className="wrapperGlobal">
       <Seo seoData={seoData}/>

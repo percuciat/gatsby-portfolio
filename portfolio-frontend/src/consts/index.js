@@ -16,4 +16,3 @@ export const MOBILE_MEDIA = {
 };
 
 export const NAME_LOGO = 'Maksim';
-export const BODY = document.body;

@@ -5,7 +5,7 @@ const initialState = {
   isRu: true,
   isDark: false,
   isMenuOpen: false,
-  widthScreen: window.innerWidth
+  widthScreen: null
 };
 
 export const ContextApp = React.createContext({
