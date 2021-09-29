@@ -3,11 +3,13 @@ import { SocialLinks, MenuLinks } from '../index';
 import { FaTimes } from "react-icons/fa";
 import { closeMenu } from "../../stateManager/actions";
 
-import "./sidebar.scss"
+import "./sidebar.scss";
+import { BODY } from "../../consts";
 
 const Sidebar = ( { toggleSidebar, dispatch, isRu, isDark }) => {
   const handleCloseMenu = () => {
     dispatch(closeMenu(!toggleSidebar));
+    BODY.style.overflow = 'auto';
   };
   return (
     <aside className={`${isDark ? 'darkSecondary' : ''} sidebar`}>

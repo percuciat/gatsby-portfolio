@@ -1,27 +1,18 @@
-import React from 'react';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import React from "react";
+import { Link, graphql, useStaticQuery } from "gatsby";
 import {GatsbyImage} from "gatsby-plugin-image";
-import { SocialLinks } from '../../components';
-
+import { SocialLinks } from "../../components";
+import { isCorrectMediaScreen } from "../../utils/isCorrectMediaScreen";
+import { TABLET_MINI_MEDIA } from "../../consts";
 import "./previewSection.scss";
 
 
-const Preview = ({isRu}) => {
+const Preview = ({isRu, widthScreen}) => {
   const {
     file: {
       childImageSharp: { gatsbyImageData },
     },
   } = useStaticQuery(query);
-
-  const [width, setWidth] = React.useState(false);
-
-  React.useEffect(() => {
-    const width = window.matchMedia("(max-width: 767px)");
-    if (width.matches) {
-      setWidth(true)
-    }
-
-  }, []);
 
   return (
     <section className="preview section bg-grey">
@@ -44,7 +35,8 @@ const Preview = ({isRu}) => {
             <SocialLinks />
           </div>
           {
-            !width &&  <GatsbyImage image={gatsbyImageData} className="preview__img" alt="my Photo"/>
+            isCorrectMediaScreen(+widthScreen, TABLET_MINI_MEDIA.name) &&
+            <GatsbyImage image={gatsbyImageData} className="preview__img" alt="my Photo"/>
           }
         </div>
     </section>

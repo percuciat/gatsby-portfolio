@@ -1,4 +1,4 @@
-import { CHANGE_THEME, CHANGE_LANG, OPEN_MENU, CLOSE_MENU } from './types';
+import { CHANGE_THEME, CHANGE_LANG, OPEN_MENU, CLOSE_MENU, SET_WINDOW_SIZE } from './types';
 
 export function changeTheme(value) {
   return {
@@ -19,6 +19,13 @@ export function openMenu(value) {
     type: OPEN_MENU,
     payload: value,
   };
+}
+
+export function setWindowSize(value) {
+  return {
+    type: SET_WINDOW_SIZE,
+    payload: value
+  }
 }
 
 export function closeMenu(value) {

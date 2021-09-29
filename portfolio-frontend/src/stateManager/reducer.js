@@ -1,4 +1,4 @@
-import { CHANGE_THEME, CHANGE_LANG, OPEN_MENU, CLOSE_MENU } from './types';
+import { CHANGE_THEME, CHANGE_LANG, OPEN_MENU, CLOSE_MENU, SET_WINDOW_SIZE } from './types';
 
 export const changeReducer = (state, action)  => {
   switch(action.type) {
@@ -13,16 +13,19 @@ export const changeReducer = (state, action)  => {
         isDark: action.payload
       };
     case OPEN_MENU:
-      document.body.style.overflow = 'hidden';
       return {
         ...state,
         isMenuOpen: action.payload
       };
     case CLOSE_MENU:
-      document.body.style.overflow = 'auto';
       return {
         ...state,
         isMenuOpen: action.payload
+      };
+    case SET_WINDOW_SIZE:
+      return {
+        ...state,
+        widthScreen: action.payload
       };
     default:
       return state

@@ -4,22 +4,14 @@ import { FaAlignRight } from "react-icons/fa";
 import { openMenu } from "../../stateManager/actions";
 import { MenuLinks, Switchers } from "../../components";
 import "./header.scss";
+import { NAME_LOGO, BODY, TABLET_MEDIA, MOBILE_MEDIA } from "../../consts";
+import { isCorrectMediaScreen } from "../../utils/isCorrectMediaScreen";
 
 
-const Header = ({ toggleSidebar, isDark, isRu, dispatch }) => {
-  const [width, setWidth] = React.useState(false);
-  const [nameLogo, setNameLogo] = React.useState('Maksim');
-
-  React.useEffect(() => {
-    const width = window.matchMedia("(max-width: 925px)");
-    setWidth(width.matches);
-    if (window.matchMedia("(max-width: 400px)").matches){
-      setNameLogo(nameLogo[0])
-    }
-  }, []);
-
+const Header = ({ toggleSidebar, isDark, isRu, dispatch, widthScreen }) => {
   const handleOpenMenu = () => {
     dispatch(openMenu(!toggleSidebar));
+    BODY.style.overflow = 'hidden';
   };
 
   return (
@@ -27,18 +19,24 @@ const Header = ({ toggleSidebar, isDark, isRu, dispatch }) => {
       <div className="container header__wrapper">
         <nav className="menu">
           <AniLink className="menu__header-logo" swipe bg="#663399" direction="right" to="/">
-            <span className="firstPart">{nameLogo}</span>
+            <span className="firstPart">
+              {isCorrectMediaScreen(widthScreen, MOBILE_MEDIA.name) ? NAME_LOGO : NAME_LOGO[0]}
+            </span>
             <span className="secondPart">Semenov</span>
           </AniLink>
           {
-            width && <button type="button"
-                             title="Menu"
-                             className="toggleBtn"
-                             onClick={handleOpenMenu}>
+            !isCorrectMediaScreen(widthScreen, TABLET_MEDIA.name) &&
+            <button type="button"
+                title="Menu"
+                className="toggleBtn"
+                onClick={handleOpenMenu}>
               <FaAlignRight/>
             </button>
           }
-          {!width && <MenuLinks isRu={isRu}/>}
+          {
+            isCorrectMediaScreen(widthScreen, TABLET_MEDIA.name) &&
+            <MenuLinks isRu={isRu}/>
+          }
           <Switchers isDark={isDark}
                      isRu={isRu}
                      dispatch={dispatch}/>
