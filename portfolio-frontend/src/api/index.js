@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 export function request(method, url, options) {
   const { data = {}, before, success, error } = options;
@@ -8,7 +8,7 @@ export function request(method, url, options) {
   return axios({
     method,
     url,
-    data: method === 'get' ? {} : data,
+    data: method === "get" ? {} : data,
   })
     .then((response) => {
       success(response.data);
@@ -20,5 +20,5 @@ export function request(method, url, options) {
     });
 }
 
-export const get = (...params) => request('get', ...params);
-export const post = (...params) => request('post', ...params);
+export const get = (...params) => request("get", ...params);
+export const post = (...params) => request("post", ...params);

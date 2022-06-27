@@ -4,56 +4,56 @@ import { ProjectList } from "../components";
 import Layout from "../layout/Layout";
 import PageContainer from "../containers/PageContainer";
 
-const ProjectsPage = React.memo(({data}) => {
+const ProjectsPage = React.memo(({ data }) => {
   const {
     allStrapiProjects: { nodes: projects },
-    allStrapiPortfolio:{nodes}
+    allStrapiPortfolio: { nodes },
   } = data;
   return (
     <Layout seoData={nodes[0].seo}>
       <PageContainer>
-        <ProjectList projects={projects}/>
+        <ProjectList projects={projects} />
       </PageContainer>
     </Layout>
-  )
+  );
 });
 export const query = graphql`
-    {
-        allStrapiProjects {
-            nodes {
-                title
-                title_eng
-                slug
-                category
-                shortDescription
-                shortDescription_eng
-                description
-                description_eng
-                id
-                image {
-                    localFile {
-                      childImageSharp {
-                       gatsbyImageData
-                      }
-                   }
-                }
-                stack {
-                    id
-                    stackTitle
-                }
-            }
-        },
-        allStrapiPortfolio {
-          nodes {
-            seo {
-              title
-              description
-              description_eng
-              title_eng
+  {
+    allStrapiProjects {
+      nodes {
+        title
+        title_eng
+        slug
+        category
+        shortDescription
+        shortDescription_eng
+        description
+        description_eng
+        id
+        image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
             }
           }
         }
+        stack {
+          id
+          stackTitle
+        }
+      }
     }
+    allStrapiPortfolio {
+      nodes {
+        seo {
+          title
+          description
+          description_eng
+          title_eng
+        }
+      }
+    }
+  }
 `;
 
 export default ProjectsPage;

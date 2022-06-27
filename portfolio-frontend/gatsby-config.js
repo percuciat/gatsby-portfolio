@@ -3,8 +3,8 @@ module.exports = {
     siteUrl: "https://blog.maksim-semenov.ru",
     title: "Maksim Semenov",
     author: "Maksim Semenov",
-    description: 'Frontend developer personal blog',
-    keywords: "Разработка приложений, персональный сайт"
+    description: "Frontend developer personal blog",
+    keywords: "Разработка приложений, персональный сайт",
   },
   plugins: [
     "gatsby-plugin-sass",
@@ -37,7 +37,7 @@ module.exports = {
       },
       __key: "images",
     },
-  /*  {
+    /*  {
       resolve: "gatsby-plugin-offline",
       options: {
         precachePages: ["/about/", "/projects/!*", "/blog/!*", "/contact/"],
@@ -51,17 +51,49 @@ module.exports = {
       options: {
         apiURL: "http://localhost:1337",
         collectionTypes: [
-          "jobs", "projects",
+          /* {
+            name: `jobs`,
+            endpoint: "api/jobs",
+          },
+          {
+            name: `projects`,
+            endpoint: "api/projects",
+          },
+          {
+            name: `projects-categories`,
+            endpoint: "api/projects-categories",
+          },
+          {
+            name: `blogs`,
+            endpoint: "api/blogs",
+          },
+          {
+            name: `blogs-categories`,
+            endpoint: "api/blogs-categories",
+          },
+          {
+            name: `services`,
+            endpoint: "api/services",
+          }, */
+          "jobs",
+          "projects",
           "projects-categories",
-          "blogs", "blogs-categories",
-          "services"
+          "blogs",
+          "blogs-categories",
+          "services",
         ],
-        singleTypes: ["about", "portfolio", "blog-page", "contact", "global"],
+        singleTypes: [
+          "about",
+          "portfolio",
+          "blog-page", 
+          "contact",
+          "global",
+        ],
         queryLimit: 1000,
       },
       __key: "pages",
     },
-   /* {
+    /* {
       resolve: "gatsby-source-graphql",
       options: {
         // Arbitrary name for the remote schema Query type

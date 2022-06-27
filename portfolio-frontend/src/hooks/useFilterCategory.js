@@ -5,16 +5,14 @@ export default function useFilterCategory(dataNode) {
 
   const filterCategory = useCallback((type) => {
     setCategoryName(type);
-  },[]);
+  }, []);
 
-  const filteredData = dataNode
-    .filter(elemProject => +categoryName === 0 ?
-      elemProject :
-      elemProject.category === categoryName
-    );
+  const filteredData = dataNode.filter((elemProject) =>
+    +categoryName === 0 ? elemProject : elemProject.category === categoryName
+  );
   return {
     actionFilter: filterCategory,
     filteredData,
-    activeCategoryName: categoryName
-  }
+    activeCategoryName: categoryName,
+  };
 }
