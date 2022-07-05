@@ -2,25 +2,25 @@
   padding: 1rem 0;
   box-shadow: var(--light-shadow);
   background: var(--whiteColor);
-  &__wrapper{
+  &__wrapper {
     text-align: center;
     display: grid;
     place-items: center;
   }
-  &__title{
+  &__title {
     line-height: 1.3rem;
     color: var(--boldColor);
-    .text{
+    .text {
       color: var(--attentionColor);
     }
   }
 }
-.footer .social__list{
+.footer .social__list {
   margin-top: 0;
 }
 
 @media screen and (max-width: 400px) {
-  .footer__title{
-    font-size: .7rem;
+  .footer__title {
+    font-size: 0.7rem;
   }
 }

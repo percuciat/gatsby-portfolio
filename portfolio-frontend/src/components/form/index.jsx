@@ -5,7 +5,7 @@ import {
   PreloaderForm,
   ErrorForm,
 } from "./components";
-import { post } from "../../api";
+import { post } from "../../shared/api";
 import "./form.scss";
 
 const Form = ({ isRu }) => {

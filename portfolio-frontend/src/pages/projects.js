@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { ProjectList } from "../components";
-import Layout from "../layout/Layout";
+import Layout from "../_layouts";
 import PageContainer from "../containers/PageContainer";
 
 const ProjectsPage = React.memo(({ data }) => {
