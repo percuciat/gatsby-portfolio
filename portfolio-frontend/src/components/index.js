@@ -1,12 +1,12 @@
 import { Header, Switchers } from "./Header";
 import { Footer } from "./Footer";
 import { Title } from "./title";
-import { Preview } from "./preview";
+import { Preview } from "../pages/index";
 import { Sidebar } from "./sidebar";
 import { Services, ServicesItems } from "./services";
 import { Project, ProjectList, ProjectSingle } from "./Projects/components";
 import { FilterSection, SocialLinks, MenuLinks } from "./common";
-import { Jobs, JobsArticle, JobsList } from "./Jobs";
+import { Jobs, JobsArticle, JobsList } from "../pages/index/ui/Jobs";
 import { BlogItem, BlogList } from "./Blog";
 import {
   Form,

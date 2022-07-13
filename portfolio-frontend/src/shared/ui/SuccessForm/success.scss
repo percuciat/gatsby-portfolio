@@ -1,0 +1,15 @@
+.success {
+  display: grid;
+  place-items: center;
+  .success__text,
+  .success__title {
+    color: var(--boldColor);
+  }
+  .success__title {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.5rem;
+  }
+  .success__text {
+    margin-bottom: 1rem;
+  }
+}

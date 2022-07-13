@@ -1,7 +1,7 @@
 import React from "react";
 /* import { SocialLinks }  from '..'; */
 
-import "./index.scss";
+import "./footer.scss";
 
 const Footer = ({isDark, isRu}) => {
   return (

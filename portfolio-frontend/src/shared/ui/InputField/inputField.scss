@@ -1,0 +1,36 @@
+.valid {
+  background: rgba(0, 149, 75, 0.3) !important;
+}
+.valid:-webkit-autofill,
+.valid:-webkit-autofill:focus {
+  background: transparent;
+  -webkit-box-shadow: 0 0 0 30px rgba(0, 149, 75, 0.3) inset;
+  -webkit-text-fill-color: var(--boldColor) !important;
+}
+
+.valid:focus {
+  outline: 2px solid #00954b;
+}
+.noValid:focus {
+  outline: 2px solid var(--clr-red-dark);
+}
+.message {
+  color: var(--clr-red-dark);
+}
+
+.inputField {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--boldColor);
+  margin-bottom: 1.25rem;
+  background: var(--grayLightColor);
+  border-radius: var(--radius);
+  letter-spacing: var(--spacing);
+  &::placeholder {
+    font-family: var(--ff-primary);
+    color: var(--boldColor);
+    text-transform: uppercase;
+    letter-spacing: var(--spacing);
+  }
+}
