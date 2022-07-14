@@ -1,7 +1,8 @@
 import React from "react";
-import { ServicesItems } from "./components/ServicesItems";
-import { Title } from "shared/ui/Title";
-import "../services.scss";
+import ServicesItems from "./components/ServicesItems";
+import { Title } from "shared/ui/";
+
+/* import "../services.scss"; */
 
 const Services = ({ isRu }) => {
   const titleRu = "Что умею";

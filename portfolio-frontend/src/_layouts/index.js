@@ -1,1 +1,3 @@
-export { LayoutMain } from "./LayoutMain";
+import LayoutMain from "./LayoutMain";
+
+export { LayoutMain };

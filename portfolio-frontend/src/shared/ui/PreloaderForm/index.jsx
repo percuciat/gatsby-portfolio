@@ -1,15 +1,14 @@
 import React from "react";
-import "./preloaderForm.scss";
 
 const PreloaderForm = ({ isRu }) => {
   return (
     <>
-      <div className="preloader__wrapper">
-        <div className="preloader__container">
-          <div className="preloader__container-item yellow" />
-          <div className="preloader__container-item red" />
-          <div className="preloader__container-item blue" />
-          <div className="preloader__container-item violet" />
+      <div className="preloaderForm__wrapper">
+        <div className="preloaderForm__container">
+          <div className="preloaderForm__container-item yellow" />
+          <div className="preloaderForm__container-item red" />
+          <div className="preloaderForm__container-item blue" />
+          <div className="preloaderForm__container-item violet" />
         </div>
         <p>{isRu ? "Сообщение отправляется..." : "Message is sending..."}</p>
       </div>

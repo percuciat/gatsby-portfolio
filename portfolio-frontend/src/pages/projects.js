@@ -1,8 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { ProjectList } from "../components";
-import Layout from "../_layouts";
-import PageContainer from "../containers/PageContainer";
+import LayoutMain from "_layouts/LayoutMain";
+import { ProjectList } from "entities";
+import { PageContainer } from "shared/ui/";
 
 const ProjectsPage = React.memo(({ data }) => {
   const {
@@ -10,11 +10,11 @@ const ProjectsPage = React.memo(({ data }) => {
     allStrapiPortfolio: { nodes },
   } = data;
   return (
-    <Layout seoData={nodes[0].seo}>
+    <LayoutMain seoData={nodes[0].seo}>
       <PageContainer>
         <ProjectList projects={projects} />
       </PageContainer>
-    </Layout>
+    </LayoutMain>
   );
 });
 export const query = graphql`

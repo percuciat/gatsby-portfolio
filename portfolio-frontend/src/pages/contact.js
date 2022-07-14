@@ -1,9 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { ContextApp } from "../stateManager/store";
-import { Title, Form } from "../components";
-import Layout from "../layout/Layout";
-import PageContainer from "../containers/PageContainer";
+import { ContextApp } from "stateManager/store";
+import LayoutMain from "_layouts/LayoutMain";
+import { Form } from "entities";
+import { Title, PageContainer } from "shared/ui";
 
 const Contact = ({ data }) => {
   const {
@@ -17,12 +17,12 @@ const Contact = ({ data }) => {
   const titleEng = "Contact";
 
   return (
-    <Layout seoData={nodes[0].seo}>
+    <LayoutMain seoData={nodes[0].seo}>
       <PageContainer>
         <Title title={titleRu} isRu={isRu} title_eng={titleEng} />
         <Form />
       </PageContainer>
-    </Layout>
+    </LayoutMain>
   );
 };
 

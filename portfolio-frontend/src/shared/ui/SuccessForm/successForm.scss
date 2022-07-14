@@ -1,15 +1,15 @@
-.success {
+.successForm {
   display: grid;
   place-items: center;
-  .success__text,
-  .success__title {
+  .successForm__text,
+  .successForm__title {
     color: var(--boldColor);
   }
-  .success__title {
+  .successForm__title {
     margin: 1rem 0 0.5rem;
     font-size: 1.5rem;
   }
-  .success__text {
+  .successForm__text {
     margin-bottom: 1rem;
   }
 }

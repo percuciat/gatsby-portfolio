@@ -1,9 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Title } from "../components";
-import Layout from "../layout/Layout";
-import AboutWrapper from "../containers/AboutWrapper";
-import PageContainer from "../containers/PageContainer";
+
+import LayoutMain from "_layouts/LayoutMain";
+import { Title, PageContainer } from "shared/ui";
+import { AboutSection } from "widgets";
 
 const About = ({
   data: {
@@ -17,16 +17,16 @@ const About = ({
   } = nodes[0];
 
   return (
-    <Layout seoData={nodes[0].seo}>
+    <LayoutMain seoData={nodes[0].seo}>
       <PageContainer>
         <Title title={title} title_eng={title_eng} />
-        <AboutWrapper
+        <AboutSection
           shareImage={shareImage}
           textAbout={textAbout}
           textAbout_eng={textAbout_eng}
         />
       </PageContainer>
-    </Layout>
+    </LayoutMain>
   );
 };
 

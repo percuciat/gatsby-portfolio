@@ -1,5 +1,4 @@
 import React from "react";
-import "./filter.scss";
 
 const FilterSection = ({
   isRu,

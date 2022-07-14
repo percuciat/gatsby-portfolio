@@ -1,8 +1,7 @@
 import React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
-import { JobsList } from "./components/JobsList";
-import { Title } from "components/common";
-import "../jobs.scss";
+import JobsList from "./components/JobsList";
+import { Title } from "shared/ui/";
 
 const Jobs = ({ isRu }) => {
   const {

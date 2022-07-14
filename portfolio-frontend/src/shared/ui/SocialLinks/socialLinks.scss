@@ -1,0 +1,18 @@
+.social__list {
+  margin-top: 2rem;
+  width: 15rem;
+  display: flex;
+  justify-content: space-between;
+  &-item {
+    font-size: 1.75rem;
+    color: var(--boldColor);
+    transition: var(--transition);
+    &:hover {
+      color: var(--attentionColor);
+    }
+  }
+}
+
+.social__icon--vk {
+  border-radius: 50px;
+}

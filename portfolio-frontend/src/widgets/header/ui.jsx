@@ -2,12 +2,10 @@ import React from "react";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { FaAlignRight } from "react-icons/fa";
 import { openMenu } from "stateManager/actions";
-import { HeaderSwitchLang, HeaderSwitchTheme } from "./entities/switcher";
-import { MenuLinks } from "components/common";
+import { HeaderSwitcherLang, HeaderSwitcherTheme } from "entities/switcher";
+import { MenuLinks } from "shared/ui";
 import { NAME_LOGO, TABLET_MEDIA, MOBILE_MEDIA } from "consts";
-import { isCorrectMediaScreen } from "utils/isCorrectMediaScreen";
-
-import "./header.scss";
+import { isCorrectMediaScreen } from "shared/lib/isCorrectMediaScreen";
 
 const Header = ({ toggleSidebar, isDark, isRu, dispatch, widthScreen }) => {
   const handleOpenMenu = () => {
@@ -33,22 +31,22 @@ const Header = ({ toggleSidebar, isDark, isRu, dispatch, widthScreen }) => {
             </span>
             <span className="secondPart">Semenov</span>
           </AniLink>
-          {!isCorrectMediaScreen(widthScreen, TABLET_MEDIA.name) && (
-            <button
-              type="button"
-              title="Menu"
-              className="toggleBtn"
-              onClick={handleOpenMenu}
-            >
-              <FaAlignRight />
-            </button>
-          )}
           {isCorrectMediaScreen(widthScreen, TABLET_MEDIA.name) && (
             <MenuLinks isRu={isRu} />
           )}
-          <HeaderSwitchLang isDark={isDark} isRu={isRu} dispatch={dispatch} />
-          <HeaderSwitchTheme isDark={isDark} isRu={isRu} dispatch={dispatch} />
         </nav>
+        <HeaderSwitcherTheme isDark={isDark} isRu={isRu} dispatch={dispatch} />
+        <HeaderSwitcherLang isDark={isDark} isRu={isRu} dispatch={dispatch} />
+        {!isCorrectMediaScreen(widthScreen, TABLET_MEDIA.name) && (
+          <button
+            type="button"
+            title="Menu"
+            className="toggleBtn"
+            onClick={handleOpenMenu}
+          >
+            <FaAlignRight />
+          </button>
+        )}
       </div>
     </header>
   );

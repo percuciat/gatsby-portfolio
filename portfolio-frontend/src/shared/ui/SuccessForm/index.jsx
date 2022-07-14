@@ -1,13 +1,11 @@
 import React from "react";
-import Link from "gatsby";
-import "./success.scss";
 
 const SuccessForm = ({ isRu }) => {
   const text = "Ваше сообщение успешно отправлено.";
   const textEng = "Your message has been successfully sent.";
   return (
     <>
-      <div className="success">
+      <div className="successForm">
         <svg
           width="181"
           height="150"
@@ -22,9 +20,8 @@ const SuccessForm = ({ isRu }) => {
             strokeWidth="10"
           />
         </svg>
-        <h4 className="success__title">{isRu ? "Отлично!" : "Excellent!"}</h4>
-        <p className="success__text">{isRu ? text : textEng}</p>
-        {/*<Link className="btn" to="/projects">Посмотреть портфолио</Link>*/}
+        <h4 className="successForm__title">{isRu ? "Отлично!" : "Excellent!"}</h4>
+        <p className="successForm__text">{isRu ? text : textEng}</p>
       </div>
     </>
   );

@@ -1,8 +1,7 @@
 import React from "react";
-import { FieldsForm } from "./components";
-import { post } from "../../shared/api";
-import { SuccessForm, ErrorForm, PreloaderForm } from "../../shared/ui";
-import "./contact-form.scss";
+import { post } from "shared/api";
+import { Form } from "entities";
+import { SuccessForm, ErrorForm, PreloaderForm } from "shared/ui";
 
 const ContactForm = ({ isRu }) => {
   const [sendStatus, setSendStatus] = React.useState("");
@@ -30,7 +29,7 @@ const ContactForm = ({ isRu }) => {
     case "error":
       return <ErrorForm isRu={isRu} />;
     default:
-      return <FieldsForm handleSubmitForm={submitForm} isRu={isRu} />;
+      return <Form handleSubmitForm={submitForm} isRu={isRu} />;
   }
 };
 

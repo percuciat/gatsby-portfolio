@@ -1,9 +1,8 @@
 import React from "react";
-import SocialLinks from "./SocialLinks";
-import MenuLinks from "./MenuLinks";
 import { FaTimes } from "react-icons/fa";
+import { MenuLinks, SocialLinks } from "shared/ui";
 import { closeMenu } from "stateManager/actions";
-import "./sidebar.scss";
+
 
 const Sidebar = ({ toggleSidebar, dispatch, isRu, isDark }) => {
   const handleCloseMenu = () => {

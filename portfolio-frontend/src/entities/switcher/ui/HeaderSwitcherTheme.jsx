@@ -1,6 +1,5 @@
 import React from "react";
 import { changeTheme } from "stateManager/actions";
-import "../switcher.scss";
 
 const HeaderSwitcherTheme = ({ isDark, isRu, dispatch }) => {
   const switchTheme = () => {
@@ -9,6 +8,7 @@ const HeaderSwitcherTheme = ({ isDark, isRu, dispatch }) => {
   return (
     <>
       <button
+        type="button"
         className="switcher switcher--theme"
         onClick={switchTheme}
         title={isRu ? "Сменить тему" : "Change theme"}

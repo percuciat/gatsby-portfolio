@@ -1,6 +1,6 @@
 {
   "name": "maksim-semenov-blog",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "private": true,
   "description": "Maksim Semenov | blog",
   "author": "percuciat",
@@ -43,5 +43,8 @@
     "react-icons": "^4.2.0",
     "react-markdown": "^7.0.1",
     "sass": "^1.38.2"
+  },
+  "devDependencies": {
+    "gatsby-plugin-root-import": "^2.0.8"
   }
 }

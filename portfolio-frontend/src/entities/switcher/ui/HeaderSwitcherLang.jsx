@@ -1,6 +1,5 @@
 import React from "react";
 import { changeLang } from "stateManager/actions";
-import "../switcher.scss";
 
 const HeaderSwitcherLang = ({ isRu, dispatch }) => {
   const switchLang = () => {
@@ -9,6 +8,7 @@ const HeaderSwitcherLang = ({ isRu, dispatch }) => {
   return (
     <>
       <button
+        type="button"
         className="switcher switcher--lang"
         onClick={switchLang}
         title={isRu ? "Сменить язык" : "Change language"}

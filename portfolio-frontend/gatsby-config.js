@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
   siteMetadata: {
     siteUrl: "https://blog.maksim-semenov.ru",
@@ -7,6 +9,12 @@ module.exports = {
     keywords: "Разработка приложений, персональный сайт",
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-root-import",
+      options: {
+        root: path.join(__dirname, "src"),
+      },
+    },
     "gatsby-plugin-sass",
     "gatsby-plugin-transition-link",
     "gatsby-plugin-react-helmet",
@@ -51,30 +59,6 @@ module.exports = {
       options: {
         apiURL: "http://localhost:1337",
         collectionTypes: [
-          /* {
-            name: `jobs`,
-            endpoint: "api/jobs",
-          },
-          {
-            name: `projects`,
-            endpoint: "api/projects",
-          },
-          {
-            name: `projects-categories`,
-            endpoint: "api/projects-categories",
-          },
-          {
-            name: `blogs`,
-            endpoint: "api/blogs",
-          },
-          {
-            name: `blogs-categories`,
-            endpoint: "api/blogs-categories",
-          },
-          {
-            name: `services`,
-            endpoint: "api/services",
-          }, */
           "jobs",
           "projects",
           "projects-categories",
@@ -82,13 +66,7 @@ module.exports = {
           "blogs-categories",
           "services",
         ],
-        singleTypes: [
-          "about",
-          "portfolio",
-          "blog-page", 
-          "contact",
-          "global",
-        ],
+        singleTypes: ["about", "portfolio", "blog-page", "contact", "global"],
         queryLimit: 1000,
       },
       __key: "pages",

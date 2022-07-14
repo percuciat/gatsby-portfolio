@@ -1,6 +1,5 @@
-import { formatFromFilename } from "gatsby-plugin-image/dist/src/image-utils";
 import React from "react";
-import { InputField } from "../../../shared/ui/InputField";
+import { InputField } from "shared/ui/";
 
 const Form = ({ isRu, handleSubmitForm }) => {
   const fields = [

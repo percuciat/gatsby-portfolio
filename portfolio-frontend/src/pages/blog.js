@@ -1,8 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { BlogList } from "../components";
-import Layout from "../layout/Layout";
-import PageContainer from "../containers/PageContainer";
+import LayoutMain from "_layouts/LayoutMain";
+import { BlogList } from "entities";
+import { PageContainer } from "shared/ui";
 
 const Blog = ({
   data: {
@@ -11,11 +11,11 @@ const Blog = ({
   },
 }) => {
   return (
-    <Layout seoData={nodes[0].seo}>
+    <LayoutMain seoData={nodes[0].seo}>
       <PageContainer isGrey={true}>
         <BlogList blogItem={blogItem} />
       </PageContainer>
-    </Layout>
+    </LayoutMain>
   );
 };
 

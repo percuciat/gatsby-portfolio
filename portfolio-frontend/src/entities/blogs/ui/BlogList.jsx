@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
-import { Title, BlogItem, FilterSection } from "../../../components";
-import "../blog.scss";
+import useFilterCategory from "../../../hooks/useFilterCategory";
+import BlogItem from "./components/BlogItem";
+import { Title, FilterSection } from "../../../shared/ui/";
 
-import useFilterCategory from "hooks/useFilterCategory";
 
 const BlogList = ({ isRu, blogItem, showLink }) => {
   const {

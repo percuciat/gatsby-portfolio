@@ -1,7 +1,7 @@
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import Markdown from "react-markdown";
-import "../projects.scss";
+
 
 const ProjectSingle = ({
   isRu,

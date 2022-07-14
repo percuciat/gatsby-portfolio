@@ -22,7 +22,7 @@ const dataStack = [
   },
 ];
 
-const AboutWrapper = ({ isRu, textAbout_eng, shareImage, textAbout }) => {
+const AboutSection = ({ isRu, textAbout_eng, shareImage, textAbout }) => {
   return (
     <div className="about__wrapper">
       <GatsbyImage
@@ -46,4 +46,4 @@ const AboutWrapper = ({ isRu, textAbout_eng, shareImage, textAbout }) => {
   );
 };
 
-export default AboutWrapper;
+export default AboutSection;

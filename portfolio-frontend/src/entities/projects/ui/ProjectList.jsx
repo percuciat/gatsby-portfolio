@@ -1,11 +1,10 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
-import { Title } from "shared/ui/Title";
+import { Title, FilterSection } from "shared/ui/";
 import Project from "./components/Project";
 import useFilterCategory from "hooks/useFilterCategory";
 
-import "../projects.scss";
 
 const ProjectList = ({ isRu, projects, showLink }) => {
   const {

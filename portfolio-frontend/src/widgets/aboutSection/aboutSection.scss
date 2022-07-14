@@ -1,0 +1,25 @@
+.about__wrapper {
+  display: flex;
+  column-gap: 2rem;
+  .contentMarkdown {
+    flex: 1 1 100%;
+  }
+}
+
+.about__img {
+  align-self: flex-start;
+  flex: 1 1 35%;
+}
+
+.about__stack {
+  display: flex;
+  list-style-type: none !important;
+  &-item {
+    margin-right: 2rem;
+  }
+}
+
+.about__text {
+  margin-bottom: 25px;
+  word-spacing: 10px;
+}

@@ -1,7 +1,9 @@
 import React from "react";
 import App from "app";
-import { Header, Sidebar, Footer } from "components";
-import { Seo } from "Seo";
+import Header from "widgets/header/ui";
+import Sidebar from "widgets/sidebar/ui";
+import Footer from "widgets/footer/ui";
+import Seo from "widgets/seo/ui";
 import { ContextApp } from "stateManager/store";
 import { setWindowSize } from "stateManager/actions";
 import { useResizeWindow } from "hooks/useResizeWindow";
@@ -14,7 +16,7 @@ const LayoutMain = ({ seoData, children }) => {
 
   React.useEffect(() => {
     dispatch(setWindowSize(window.innerWidth));
-  }, []);
+  }, [dispatch]);
 
   useResizeWindow();
 
@@ -48,4 +50,4 @@ const LayoutMain = ({ seoData, children }) => {
   );
 };
 
-export default Layout;
+export default LayoutMain;

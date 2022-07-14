@@ -1,10 +1,11 @@
 import React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { SocialLinks } from "components";
-import { isCorrectMediaScreen } from "utils/isCorrectMediaScreen";
+
+import { isCorrectMediaScreen } from "shared/lib/isCorrectMediaScreen";
+import { SocialLinks } from "shared/ui/";
 import { TABLET_MINI_MEDIA } from "consts";
-import "../preview.scss";
+
 
 const Preview = ({ isRu, widthScreen }) => {
   const {
