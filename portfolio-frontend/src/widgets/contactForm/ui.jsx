@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { post } from "shared/api";
 import { Form } from "entities";
 import { SuccessForm, ErrorForm, PreloaderForm } from "shared/ui";
 
 const ContactForm = ({ isRu }) => {
-  const [sendStatus, setSendStatus] = React.useState("");
+  const [sendStatus, setSendStatus] = useState("");
   const submitForm = (e, data) => {
     e.preventDefault();
     post("https://formspree.io/mpzozave", {

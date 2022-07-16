@@ -17,11 +17,9 @@ const BlogTemplate = ({ data }) => {
     <LayoutMain seoData={data.blogs}>
       <PageContainer>
         <Title title={title} isRu={isRu} title_eng={title_eng} />
-        <>
-          <article className="contentMarkdown">
-            <Markdown children={isRu ? content : content_eng} />
-          </article>
-        </>
+        <article className="contentMarkdown">
+          <Markdown children={isRu ? content : content_eng} />
+        </article>
         <AniLink swipe direction="right" to="/blog" className="btn center-btn">
           {isRu ? "Смотреть еще" : "Show more"}
         </AniLink>

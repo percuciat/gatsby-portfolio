@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import { InputField } from "shared/ui/";
 
 const Form = ({ isRu, handleSubmitForm }) => {
@@ -7,9 +7,9 @@ const Form = ({ isRu, handleSubmitForm }) => {
     { name: "email", type: "email", pl: "Электронная почта", plEng: "E-Mail" },
     { name: "message", type: "text", pl: "Сообщение", plEng: "Your message" },
   ];
-  const [formValue, setFormValue] = React.useState({});
+  const [formValue, setFormValue] = useState({});
 
-  const handleChange = React.useCallback((nameField, valueField) => {
+  const handleChange = useCallback((nameField, valueField) => {
     setFormValue((values) => ({ ...values, [nameField]: valueField }));
   }, []);
   const submitForm = (e) => {

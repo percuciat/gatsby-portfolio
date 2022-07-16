@@ -7,11 +7,13 @@ export default function useFilterCategory(dataNode) {
     setCategoryName(type);
   }, []);
 
+  const isCategoryAll = +categoryName === 0;
+
   const filteredData = dataNode.filter((elemProject) =>
-    +categoryName === 0 ? elemProject : elemProject.category === categoryName
+    isCategoryAll ? elemProject : elemProject.category === categoryName
   );
   return {
-    actionFilter: filterCategory,
+    filterHandler: filterCategory,
     filteredData,
     activeCategoryName: categoryName,
   };

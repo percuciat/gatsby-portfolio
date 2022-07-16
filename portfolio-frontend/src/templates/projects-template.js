@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
@@ -10,7 +10,7 @@ import { ContextApp } from "stateManager/store";
 const ComponentProject = ({ data }) => {
   const {
     state: { isRu },
-  } = React.useContext(ContextApp);
+  } = useContext(ContextApp);
   const { title, title_eng } = data.projects;
   return (
     <LayoutMain seoData={data.projects}>

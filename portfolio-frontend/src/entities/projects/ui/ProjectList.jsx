@@ -5,7 +5,6 @@ import { Title, FilterSection } from "shared/ui/";
 import Project from "./components/Project";
 import useFilterCategory from "hooks/useFilterCategory";
 
-
 const ProjectList = ({ isRu, projects, showLink }) => {
   const {
     allStrapiProjectsCategories: { nodes },
@@ -22,11 +21,12 @@ const ProjectList = ({ isRu, projects, showLink }) => {
     }
   `);
 
-  const { actionFilter, filteredData, activeCategoryName } =
+  const { filterHandler, filteredData, activeCategoryName } =
     useFilterCategory(projects);
 
   const titleRu = "Портфолио";
   const titleEng = "Portfolio";
+  const filterLength = filteredData.length;
 
   return (
     <>
@@ -36,11 +36,11 @@ const ProjectList = ({ isRu, projects, showLink }) => {
           activeCategory={activeCategoryName}
           isRu={isRu}
           filterItems={nodes}
-          changeCategory={actionFilter}
+          changeCategory={filterHandler}
         />
       )}
       <ul className="projects__wrapper">
-        {filteredData.length > 0 ? (
+        {filterLength > 0 ? (
           filteredData.map((project) => {
             return (
               <li key={project.id}>

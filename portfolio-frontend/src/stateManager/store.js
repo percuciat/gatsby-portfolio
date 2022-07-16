@@ -1,24 +1,23 @@
-import React from "react";
+import React, { createContext, useReducer } from "react";
 import { changeReducer } from "./reducer";
 
 const initialState = {
   isRu: true,
   isDark: false,
   isMenuOpen: false,
-  widthScreen: null
+  widthScreen: null,
 };
 
-export const ContextApp = React.createContext({
+export const ContextApp = createContext({
   state: initialState,
-  dispatch: () => null
+  dispatch: () => null,
 });
 
-
-export const GlobalContextProvider = ({children}) => {
-  const [state, dispatch] = React.useReducer(changeReducer, initialState);
+export const GlobalContextProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(changeReducer, initialState);
   return (
-    <ContextApp.Provider value={{state, dispatch}}>
+    <ContextApp.Provider value={{ state, dispatch }}>
       {children}
     </ContextApp.Provider>
-    )
+  );
 };

@@ -1,10 +1,9 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
-import useFilterCategory from "../../../hooks/useFilterCategory";
+import useFilterCategory from "hooks/useFilterCategory";
 import BlogItem from "./components/BlogItem";
-import { Title, FilterSection } from "../../../shared/ui/";
-
+import { Title, FilterSection } from "shared/ui/";
 
 const BlogList = ({ isRu, blogItem, showLink }) => {
   const {
@@ -22,11 +21,12 @@ const BlogList = ({ isRu, blogItem, showLink }) => {
     }
   `);
 
-  const { actionFilter, filteredData, activeCategoryName } =
+  const { filterHandler, filteredData, activeCategoryName } =
     useFilterCategory(blogItem);
 
   const titleRu = "Блог";
   const titleEng = "Blog";
+  const filterLength = filteredData.length;
 
   return (
     <>
@@ -36,11 +36,11 @@ const BlogList = ({ isRu, blogItem, showLink }) => {
           activeCategory={activeCategoryName}
           filterItems={nodes}
           isRu={isRu}
-          changeCategory={actionFilter}
+          changeCategory={filterHandler}
         />
       )}
       <ul className="blog__wrapper">
-        {filteredData.length > 0 ? (
+        {filterLength > 0 ? (
           filteredData.map((blog) => {
             return <BlogItem key={blog.strapiId} isRu={isRu} {...blog} />;
           })

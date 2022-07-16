@@ -1,4 +1,5 @@
 export default function useFormValidation(fieldName, fieldValue) {
+  const nameRegEcp = new RegExp('[\\wа-я]{3,}', 'gi');
   const emailRegExp = new RegExp('^\\w+([.-]?\\w+)*@\\w+([.-]?\\w+)*(\\.\\w{2,3})+$');
   switch(fieldName) {
     case 'name':
