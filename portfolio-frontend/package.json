@@ -18,6 +18,8 @@
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "assert": "^2.0.0",
+    "effector": "^22.3.0",
+    "effector-react": "^22.1.4",
     "gatsby": "^3.13.0",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-image": "^1.13.0",

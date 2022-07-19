@@ -1,15 +1,19 @@
 .successForm {
   display: grid;
   place-items: center;
-  .successForm__text,
-  .successForm__title {
+  max-width: 400px;
+  margin: auto;
+  box-shadow: var(--light-shadow);
+  padding: 2.5rem 1rem 2rem;
+  &__text,
+  &__title {
     color: var(--boldColor);
   }
-  .successForm__title {
+  &__title {
     margin: 1rem 0 0.5rem;
     font-size: 1.5rem;
   }
-  .successForm__text {
+  &__text {
     margin-bottom: 1rem;
   }
 }

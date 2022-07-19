@@ -1,12 +1,21 @@
-.header{
+.header {
+  transition: all 0.5s;
   box-shadow: var(--light-shadow);
   background: var(--whiteColor);
-  &__wrapper{
+  &__wrapper {
     display: flex;
     justify-content: space-between;
   }
 }
 
+.header.sticky {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 0.5s;
+}
 
 .toggleBtn {
   order: 3;
@@ -21,7 +30,3 @@
     color: var(--attentionColor);
   }
 }
-
-
-
-

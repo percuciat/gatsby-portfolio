@@ -20,8 +20,18 @@ const SuccessForm = ({ isRu }) => {
             strokeWidth="10"
           />
         </svg>
-        <h4 className="successForm__title">{isRu ? "Отлично!" : "Excellent!"}</h4>
+        <h4 className="successForm__title">
+          {isRu ? "Отлично!" : "Excellent!"}
+        </h4>
         <p className="successForm__text">{isRu ? text : textEng}</p>
+        <a
+          href="https://t.me/percuciat"
+          rel="noreferrer"
+          target="_blank"
+          className="btn"
+        >
+          {isRu ? "Написать в телеграм" : "Write on Telegram"}
+        </a>
       </div>
     </>
   );

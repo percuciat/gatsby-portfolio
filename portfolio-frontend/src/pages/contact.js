@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import { ContextApp } from "stateManager/store";
 import LayoutMain from "_layouts/LayoutMain";
-import { Form } from "entities";
+import { ContactForm } from "widgets";
 import { Title, PageContainer } from "shared/ui";
 
 const Contact = ({ data }) => {
@@ -20,7 +20,7 @@ const Contact = ({ data }) => {
     <LayoutMain seoData={nodes[0].seo}>
       <PageContainer>
         <Title title={titleRu} isRu={isRu} title_eng={titleEng} />
-        <Form />
+        <ContactForm />
       </PageContainer>
     </LayoutMain>
   );

@@ -161,9 +161,13 @@ textarea {
 /*  global classes */
 
 .wrapperGlobal {
+  position: relative;
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
+}
+.tl-wrapper {
+  transform: none !important;
 }
 
 .notFound {
@@ -215,7 +219,6 @@ textarea {
   font-size: 1rem;
 }
 
-
 .bg-grey {
   background: radial-gradient(
     circle,
@@ -262,13 +265,13 @@ textarea {
   -webkit-transition-delay: 0.5s;
 }
 
-.notFound_title{
+.notFound_title {
   position: relative;
-  left:-100%;
+  left: -100%;
   transition: all 0.5s;
 }
 
-.notFound_text{
+.notFound_text {
   position: relative;
   left: 100%;
   transition: var(--transition);
@@ -276,8 +279,8 @@ textarea {
   -webkit-transition-delay: 0.5s;
 }
 
-.cont_principal{
-  .notFound_number.rotate{
+.cont_principal {
+  .notFound_number.rotate {
     transform: rotate(0);
     animation-name: animationRotate;
     animation-duration: 3s;
@@ -287,12 +290,11 @@ textarea {
   }
 }
 
-
-.cont_error_active{
+.cont_error_active {
   .notFound_title {
     left: 0;
   }
-  .notFound_text{
+  .notFound_text {
     left: 0;
   }
   .notFound_number {
@@ -305,7 +307,6 @@ textarea {
     animation-direction: alternate;
   }
 }
-
 
 @-webkit-keyframes animation_error {
   from {
@@ -327,7 +328,6 @@ textarea {
     -webkit-transform: rotate(25deg);
     transform: rotate(25deg);
   }
-
 }
 
 @-moz-keyframes animation_error {
@@ -339,7 +339,6 @@ textarea {
     -webkit-transform: rotate(25deg);
     transform: rotate(25deg);
   }
-
 }
 
 @keyframes animation_error {
@@ -353,7 +352,6 @@ textarea {
   }
 }
 
-
 @keyframes animationRotate {
   from {
     transform: rotate(20deg);
@@ -362,10 +360,6 @@ textarea {
     transform: rotate(180deg);
   }
 }
-
-
-
-// END Not Found page 404 
 
 .contentMarkdown {
   ul {

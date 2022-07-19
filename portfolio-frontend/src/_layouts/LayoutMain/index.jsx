@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import App from "app";
 import Header from "widgets/header/ui";
 import Sidebar from "widgets/sidebar/ui";
@@ -12,9 +12,9 @@ const LayoutMain = ({ seoData, children }) => {
   const {
     state: { isRu, isDark, isMenuOpen, widthScreen },
     dispatch,
-  } = React.useContext(ContextApp);
+  } = useContext(ContextApp);
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(setWindowSize(window.innerWidth));
   }, [dispatch]);
 
