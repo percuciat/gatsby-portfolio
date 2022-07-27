@@ -1,0 +1,23 @@
+.switcher--lang{
+  .flag.active{
+    border: 2px solid var(--boldColor);
+  }
+  .flag::after{
+    content: 'Ru';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 27px;
+    font-size: .75rem;
+    background: var(--attentionColor);
+    color: var(--whiteColor);
+  }
+  .flag.active::after{
+    content: 'Eng'
+  }
+}
+@media screen and (max-width: 567px) {
+  .switcher--lang .flag.active::after{
+    margin-left: 18px;
+  }
+}

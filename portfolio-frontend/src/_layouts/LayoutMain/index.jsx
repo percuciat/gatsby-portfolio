@@ -1,15 +1,16 @@
 import React, { useEffect, useContext } from "react";
 import App from "app";
-import Header from "widgets/header/ui";
-import Sidebar from "widgets/sidebar/ui";
-import Footer from "widgets/footer/ui";
-import Seo from "widgets/seo/ui";
-import { ContextApp } from "stateManager/store";
-import { setWindowSize } from "stateManager/actions";
-import { useResizeWindow } from "hooks/useResizeWindow";
+
+import { Header, Sidebar, Footer, Seo } from "widgets";
+/* import { ContextApp } from "stateManager/store";
+import { setWindowSize } from "stateManager/actions"; */
+import { useResizeWindow } from "shared/hooks/useResizeWindow";
+
+import { GlobalUiStore } from "app/model";
+import { observer } from "mobx-react-lite";
 
 const LayoutMain = ({ seoData, children }) => {
-  const {
+  /*  const {
     state: { isRu, isDark, isMenuOpen, widthScreen },
     dispatch,
   } = useContext(ContextApp);
@@ -18,36 +19,38 @@ const LayoutMain = ({ seoData, children }) => {
     dispatch(setWindowSize(window.innerWidth));
   }, [dispatch]);
 
-  useResizeWindow();
+  useResizeWindow(); */
 
   return (
     <App>
       <>
         <Seo seoData={seoData} />
         <Header
-          toggleSidebar={isMenuOpen}
-          isDark={isDark}
-          widthScreen={widthScreen}
-          isRu={isRu}
-          dispatch={dispatch}
+          globalUIStore={GlobalUiStore}
+          /* toggleSidebar={isMenuOpen} */
+          /*  isDark={isDark} */
+          /* widthScreen={widthScreen} */
+          /*  isRu={isRu}
+          dispatch={dispatch} */
         />
-        {isMenuOpen && (
+        {/*  {isMenuOpen && (
           <Sidebar
-            toggleSidebar={isMenuOpen}
+            toggleSidebar={isMenuOpen} 
             isRu={isRu}
             isDark={isDark}
-            dispatch={dispatch}
-          />
-        )}
-        <main className={`${isDark ? "darkSecondary" : ""} main`}>
-          {React.Children.map(children, (child) => {
-            return React.cloneElement(child, { isRu, widthScreen });
-          })}
+            dispatch={dispatch} 
+          />  ${isDark ? "darkSecondary" : "" }
+        )} */}
+        <main className={` main`}>
+          {children}
+          {/*  {React.Children.map(children, (child) => {
+            return React.cloneElement(child, { });
+          })}  */}
         </main>
-        <Footer isDark={isDark} isRu={isRu} />
+        <Footer />
       </>
     </App>
   );
 };
 
-export default LayoutMain;
+export default observer(LayoutMain);

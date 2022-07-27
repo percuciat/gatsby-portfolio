@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Preview, Services, Jobs, ProjectList, BlogList } from "entities";
+import { Services, Jobs, ProjectList, BlogList } from "entities";
+import { Preview } from "_pages";
 import LayoutMain from "_layouts/LayoutMain/";
 import { PageContainer } from "shared/ui";
 
@@ -12,7 +13,7 @@ const UIIndexPage = ({ data }) => {
 
   return (
     <LayoutMain>
-      <Preview />
+      {/*  <Preview /> */}
       <PageContainer>
         <Services />
       </PageContainer>

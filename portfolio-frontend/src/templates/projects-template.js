@@ -4,7 +4,7 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import LayoutMain from "_layouts/LayoutMain";
 import { PageContainer, Title } from "shared/ui";
-import { ProjectSingle } from "entities";
+import { ProjectSingle } from "_pages";
 import { ContextApp } from "stateManager/store";
 
 const ComponentProject = ({ data }) => {

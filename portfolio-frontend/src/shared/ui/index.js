@@ -1,5 +1,6 @@
 import Title from "./Title";
 import SuccessForm from "./SuccessForm";
+import Switcher from "./Switcher";
 import PreloaderForm from "./PreloaderForm";
 import FilterSection from "./FilterSection";
 import ErrorForm from "./ErrorForm";
@@ -17,5 +18,6 @@ export {
   MenuLinks,
   PageContainer,
   SuccessForm,
+  Switcher,
   FilterSection,
 };

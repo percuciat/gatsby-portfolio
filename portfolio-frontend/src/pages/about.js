@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 
 import LayoutMain from "_layouts/LayoutMain";
 import { Title, PageContainer } from "shared/ui";
-import { AboutSection } from "widgets";
+import { AboutSection } from "_pages";
 
 const About = ({
   data: {

@@ -1,5 +1,6 @@
 import React from "react";
-import "../styles/index.scss";
+/* import { observer } from "mobx-react-lite"; */
+import "./styles/index.scss";
 
 const App = (props) => {
   const { children } = props;

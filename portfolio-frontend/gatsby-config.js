@@ -67,7 +67,7 @@ module.exports = {
           "services",
         ],
         singleTypes: ["about", "portfolio", "blog-page", "contact", "global"],
-        queryLimit: 1000,
+        queryLimit: 20,
       },
       __key: "pages",
     },

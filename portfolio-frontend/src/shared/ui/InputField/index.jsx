@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import useFormValidation from "hooks/useFormValidation";
+import useFormValidation from "shared/hooks/useFormValidation";
 
 const InputField = (props) => {
   const { type, name, placeholder, handleChange, tag: Tag } = props;

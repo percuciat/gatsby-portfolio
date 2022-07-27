@@ -1,0 +1,100 @@
+.switcher {
+  position: relative;
+  margin-right: 1rem;
+  width: 60px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.flag {
+  position: relative;
+  padding: 2px;
+  display: block;
+  width: 60px;
+  height: 35px;
+  border: 2px solid var(--boldColor);
+  background-color: var(--whiteColor);
+  border-radius: 60px;
+  transition: background 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  &__icon {
+    z-index: 6;
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    width: 15px;
+    fill: var(--whiteColor);
+    transition: left 0.4s, fill 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  &::before,
+  &::after {
+    display: block;
+    position: absolute;
+    content: "";
+  }
+  &::before {
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+    right: 2px;
+    background-color: var(--whiteColor);
+    border-radius: 60px;
+    transition: background 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  &::after {
+    top: 4px;
+    left: 4px;
+    bottom: 4px;
+    width: 25px;
+    background-color: var(--boldColor);
+    border-radius: 52px;
+    transition: margin 0.4s,
+      background 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+.flag.active {
+  border: 2px solid var(--whiteColor);
+  background: var(--whiteColor);
+  .flag__icon {
+    fill: var(--darkThemeMoon);
+    left: 31px;
+  }
+}
+.flag.active::before {
+  background: var(--whiteColor);
+}
+.flag.active::after {
+  margin-left: 22px;
+  background: var(--darkThemePrimary);
+}
+
+@media screen and (max-width: 567px) {
+  .flag {
+    width: 55px;
+    height: 30px;
+    &::after {
+      top: 4px;
+      left: 4px;
+      bottom: 4px;
+      width: 20px;
+    }
+    &__icon {
+      width: 10px;
+      top: 8px;
+      left: 9px;
+    }
+  }
+  .active:after {
+    margin-left: 22px;
+  }
+  .switcher {
+    width: 55px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .switcher {
+    margin-right: 0.5rem;
+  }
+}

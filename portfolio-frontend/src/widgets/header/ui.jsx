@@ -2,12 +2,18 @@ import React, { useRef, useState, useEffect } from "react";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { FaAlignRight } from "react-icons/fa";
 import { openMenu } from "stateManager/actions";
-import { HeaderSwitcherLang, HeaderSwitcherTheme } from "entities/switcher";
+
+import { SwitcherLang } from "features/switchLang";
+import { SwitcherTheme } from "features/switchTheme";
 import { MenuLinks } from "shared/ui";
+
 import { NAME_LOGO, TABLET_MEDIA, MOBILE_MEDIA } from "consts";
 import { isCorrectMediaScreen } from "shared/lib/isCorrectMediaScreen";
 
-const Header = ({ toggleSidebar, isDark, isRu, dispatch, widthScreen }) => {
+import { observer } from "mobx-react-lite";
+
+const Header = (props) => {
+  const { globalUIStore } = props;
   const $header = useRef(null);
   const [isSticky, setSteaky] = useState(false);
 
@@ -21,14 +27,16 @@ const Header = ({ toggleSidebar, isDark, isRu, dispatch, widthScreen }) => {
   }, []);
 
   const handleOpenMenu = () => {
-    dispatch(openMenu(!toggleSidebar));
+    /* dispatch(openMenu(!toggleSidebar)); */
     document.body.style.overflow = "hidden";
   };
 
   return (
     <header
       ref={$header}
-      className={`${isDark ? "dark" : ""} header ${isSticky ? "sticky" : ""}`}
+      className={`${globalUIStore.isDark ? "dark" : ""} header ${
+        isSticky ? "sticky" : ""
+      }`}
     >
       <div className="container header__wrapper">
         <nav className="menu">
@@ -40,19 +48,20 @@ const Header = ({ toggleSidebar, isDark, isRu, dispatch, widthScreen }) => {
             to="/"
           >
             <span className="firstPart">
-              {isCorrectMediaScreen(widthScreen, MOBILE_MEDIA.name)
+              {NAME_LOGO}
+              {/* {isCorrectMediaScreen(widthScreen, MOBILE_MEDIA.name)
                 ? NAME_LOGO
-                : NAME_LOGO[0]}
+                : NAME_LOGO[0]} */}
             </span>
             <span className="secondPart">Semenov</span>
           </AniLink>
-          {isCorrectMediaScreen(widthScreen, TABLET_MEDIA.name) && (
+          {/* {isCorrectMediaScreen(widthScreen, TABLET_MEDIA.name) && (
             <MenuLinks isRu={isRu} />
-          )}
+          )} */}
         </nav>
-        <HeaderSwitcherTheme isDark={isDark} isRu={isRu} dispatch={dispatch} />
-        <HeaderSwitcherLang isDark={isDark} isRu={isRu} dispatch={dispatch} />
-        {!isCorrectMediaScreen(widthScreen, TABLET_MEDIA.name) && (
+        <SwitcherTheme />
+        <SwitcherLang />
+        {/* {!isCorrectMediaScreen(widthScreen, TABLET_MEDIA.name) && (
           <button
             type="button"
             title="Menu"
@@ -61,10 +70,10 @@ const Header = ({ toggleSidebar, isDark, isRu, dispatch, widthScreen }) => {
           >
             <FaAlignRight />
           </button>
-        )}
+        )} */}
       </div>
     </header>
   );
 };
 
-export default React.memo(Header);
+export default observer(Header);

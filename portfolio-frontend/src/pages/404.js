@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { Link } from "gatsby";
 import LayoutMain from "_layouts/LayoutMain/";
-import { useHover } from "hooks/useHover";
+import { useHover } from "shared/hooks/useHover";
 
 const NotFoundPage = () => {
   const refBlock = useRef(null);
