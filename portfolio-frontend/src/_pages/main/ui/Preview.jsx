@@ -1,4 +1,5 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 
@@ -6,12 +7,15 @@ import { isCorrectMediaScreen } from "shared/lib/isCorrectMediaScreen";
 import { SocialLinks } from "shared/ui/";
 import { TABLET_MINI_MEDIA } from "consts";
 
-const Preview = ({ isRu, widthScreen }) => {
+import useGlobalStore from "shared/hooks/useGlobalStore";
+
+const Preview = (props) => {
   const {
     file: {
       childImageSharp: { gatsbyImageData },
     },
   } = useStaticQuery(query);
+  const { lang } = useGlobalStore();
 
   return (
     <section className="preview section bg-grey">
@@ -23,19 +27,19 @@ const Preview = ({ isRu, widthScreen }) => {
           data-sal-easing="ease"
         >
           <h1 className="title">
-            {isRu
+            {lang.isRuLang
               ? "Привет, я front-end разработчик"
               : "Hello, I'm front-end developer"}
           </h1>
           <p className="subtitle">
-            {isRu ? "Создаю" : "Create"}
+            {lang.isRuLang ? "Создаю" : "Create"}
             <span className="subtitle-gradient">
-              {isRu ? " полезные " : " useful "}
+              {lang.isRuLang ? " полезные " : " useful "}
             </span>
-            {isRu ? "проекты" : "projects"}
+            {lang.isRuLang ? "проекты" : "projects"}
           </p>
           <Link to="/contact" className="btn">
-            {isRu ? "написать мне" : "send message"}
+            {lang.isRuLang ? "написать мне" : "send message"}
           </Link>
           <SocialLinks />
         </div>
@@ -66,4 +70,4 @@ const query = graphql`
   }
 `;
 
-export default Preview;
+export default observer(Preview);

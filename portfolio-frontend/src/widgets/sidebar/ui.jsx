@@ -1,16 +1,18 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
 import { FaTimes } from "react-icons/fa";
 import { MenuLinks, SocialLinks } from "shared/ui";
-import { closeMenu } from "stateManager/actions";
 
+import useGlobalStore from "shared/hooks/useGlobalStore";
 
-const Sidebar = ({ toggleSidebar, dispatch, isRu, isDark }) => {
+const Sidebar = (props) => {
+  const { theme } = useGlobalStore();
   const handleCloseMenu = () => {
-    dispatch(closeMenu(!toggleSidebar));
+    /*  dispatch(closeMenu(!toggleSidebar)); */
     document.body.style.overflow = "auto";
   };
   return (
-    <aside className={`${isDark ? "darkSecondary" : ""} sidebar`}>
+    <aside className={`${theme.isDarkMode ? "darkSecondary" : ""} sidebar`}>
       <button
         className="close-btn"
         onClick={handleCloseMenu}
@@ -19,15 +21,11 @@ const Sidebar = ({ toggleSidebar, dispatch, isRu, isDark }) => {
         <FaTimes />
       </button>
       <nav className="side-container">
-        <MenuLinks
-          asideLinks={true}
-          isRu={isRu}
-          closeMenuAfterLinking={handleCloseMenu}
-        />
-        <SocialLinks isDark={isDark} />
+        <MenuLinks asideLinks={true} closeMenuAfterLinking={handleCloseMenu} />
+        <SocialLinks />
       </nav>
     </aside>
   );
 };
 
-export default Sidebar;
+export default observer(Sidebar);

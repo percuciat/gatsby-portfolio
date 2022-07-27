@@ -1,11 +1,15 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import { observer } from "mobx-react-lite";
+
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { Title, FilterSection } from "shared/ui/";
 import Project from "./Project";
-import useFilterCategory from "shared/hooks/useFilterCategory";
 
-const ProjectList = ({ isRu, projects, showLink }) => {
+import useFilterCategory from "shared/hooks/useFilterCategory";
+import useGlobalStore from "shared/hooks/useGlobalStore";
+
+const ProjectList = (props) => {
   const {
     allStrapiProjectsCategories: { nodes },
   } = useStaticQuery(graphql`
@@ -20,7 +24,8 @@ const ProjectList = ({ isRu, projects, showLink }) => {
       }
     }
   `);
-
+  const { projects, showLink } = props;
+  const { lang } = useGlobalStore();
   const { filterHandler, filteredData, activeCategoryName } =
     useFilterCategory(projects);
 
@@ -30,11 +35,10 @@ const ProjectList = ({ isRu, projects, showLink }) => {
 
   return (
     <>
-      <Title title={titleRu} isRu={isRu} title_eng={titleEng} />
+      <Title title={titleRu} title_eng={titleEng} />
       {!showLink && (
         <FilterSection
           activeCategory={activeCategoryName}
-          isRu={isRu}
           filterItems={nodes}
           changeCategory={filterHandler}
         />
@@ -44,12 +48,16 @@ const ProjectList = ({ isRu, projects, showLink }) => {
           filteredData.map((project) => {
             return (
               <li key={project.id}>
-                <Project isRu={isRu} {...project} />
+                <Project {...project} />
               </li>
             );
           })
         ) : (
-          <li>{isRu ? "Проекты еще не добавлены" : "No projects added yet"}</li>
+          <li>
+            {lang.isRuLang
+              ? "Проекты еще не добавлены"
+              : "No projects added yet"}
+          </li>
         )}
       </ul>
       {showLink && (
@@ -59,11 +67,11 @@ const ProjectList = ({ isRu, projects, showLink }) => {
           to="/projects/"
           className="btn center-btn"
         >
-          {isRu ? "Смотреть больше" : "Show more"}
+          {lang.isRuLang ? "Смотреть больше" : "Show more"}
         </AniLink>
       )}
     </>
   );
 };
 
-export default ProjectList;
+export default observer(ProjectList);

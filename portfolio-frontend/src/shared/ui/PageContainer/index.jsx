@@ -5,7 +5,7 @@ const PageContainer = ({ children, isRu, isGrey }) => {
     <section className={`${isGrey ? "bg-grey" : ""} section`}>
       <div className="container">
         {React.Children.map(children, (child) => {
-          return React.cloneElement(child, { isRu });
+          return React.cloneElement(child);
         })}
       </div>
     </section>

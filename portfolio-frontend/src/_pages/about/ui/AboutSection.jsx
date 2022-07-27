@@ -1,8 +1,11 @@
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
+import { observer } from "mobx-react-lite";
+
 import Markdown from "react-markdown";
 import { FaHtml5, FaCss3, FaJs, FaReact } from "react-icons/fa";
-import { observer } from "mobx-react-lite";
+
+import useGlobalStore from "shared/hooks/useGlobalStore";
 
 const dataStack = [
   {
@@ -23,12 +26,9 @@ const dataStack = [
   },
 ];
 
-const AboutSection = ({
-  isRu,
-  textAbout_eng,
-  shareImage,
-  textAbout,
-}) => {
+const AboutSection = (props) => {
+  const { textAbout_eng, shareImage, textAbout } = props;
+  const { lang } = useGlobalStore();
   return (
     <div className="about__wrapper">
       <GatsbyImage
@@ -37,7 +37,7 @@ const AboutSection = ({
         alt="asd"
       />
       <article className="contentMarkdown">
-        <Markdown children={isRu ? textAbout : textAbout_eng} />
+        <Markdown children={lang.isRuLang ? textAbout : textAbout_eng} />
         <ul className="about__stack">
           {dataStack.map((item) => {
             return (

@@ -1,9 +1,14 @@
 import React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
+import { observer } from "mobx-react-lite";
+
 import JobsList from "./components/JobsList";
 import { Title } from "shared/ui/";
 
-const Jobs = ({ isRu }) => {
+import useGlobalStore from "shared/hooks/useGlobalStore";
+
+const Jobs = () => {
+  const { lang } = useGlobalStore();
   const {
     allStrapiJobs: { nodes },
   } = useStaticQuery(graphql`
@@ -30,14 +35,13 @@ const Jobs = ({ isRu }) => {
 
   return (
     <>
-      <Title title={titleRu} isRu={isRu} title_eng={titleEng} />
-
-      <JobsList nodes={nodes} isRu={isRu} />
+      <Title title={titleRu} title_eng={titleEng} />
+      <JobsList nodes={nodes} />
       <Link to="/about" className="btn center-btn">
-        {isRu ? "Узнать подробнее" : "Read more"}
+        {lang.isRuLang ? "Узнать подробнее" : "Read more"}
       </Link>
     </>
   );
 };
 
-export default Jobs;
+export default observer(Jobs);

@@ -1,5 +1,4 @@
 import React from "react";
-import { observer } from "mobx-react-lite";
 
 const Switcher = (props) => {
   const { children, activeClass, customClass, handler, title } = props;

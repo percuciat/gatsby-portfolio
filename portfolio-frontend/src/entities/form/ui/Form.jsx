@@ -1,12 +1,13 @@
 import React, { useState, useCallback } from "react";
-import { InputField } from "shared/ui/";
+import { observer } from "mobx-react-lite";
 
-const Form = ({ isRu, handleSubmitForm }) => {
-  const fields = [
-    { name: "name", type: "text", pl: "Ваше имя", plEng: "Your name" },
-    { name: "email", type: "email", pl: "Электронная почта", plEng: "E-Mail" },
-    { name: "message", type: "text", pl: "Сообщение", plEng: "Your message" },
-  ];
+import { InputField } from "shared/ui";
+import { fields } from "../config";
+import useGlobalStore from "shared/hooks/useGlobalStore";
+
+const Form = (props) => {
+  const { handleSubmitForm } = props;
+  const { lang } = useGlobalStore();
   const [formValue, setFormValue] = useState({});
 
   const handleChange = useCallback((nameField, valueField) => {
@@ -18,16 +19,16 @@ const Form = ({ isRu, handleSubmitForm }) => {
 
   return (
     <form className="form">
-      <h3>{isRu ? "Связаться со мной" : "Contact me"}</h3>
+      <h3>{lang.isRuLang ? "Связаться со мной" : "Contact me"}</h3>
       <div className="form-group">
-        {fields.map((f, index) => {
+        {fields.map((el, index) => {
           return (
             <InputField
-              key={`${f.name + "_" + index}`}
-              placeholder={isRu ? f.pl : f.plEng}
-              tag={f.name !== "message" ? "input" : "textarea"}
+              key={`${el.name + "_" + index}`}
+              placeholder={lang.isRuLang ? el.pl : el.plEng}
+              tag={el.name !== "message" ? "input" : "textarea"}
               handleChange={handleChange}
-              {...f}
+              {...el}
             />
           );
         })}
@@ -38,11 +39,11 @@ const Form = ({ isRu, handleSubmitForm }) => {
           onClick={submitForm}
           disabled={Object.values(formValue).includes("")}
         >
-          {isRu ? "Отправить" : "Send"}
+          {lang.isRuLang ? "Отправить" : "Send"}
         </button>
       </div>
     </form>
   );
 };
 
-export default Form;
+export default observer(Form);

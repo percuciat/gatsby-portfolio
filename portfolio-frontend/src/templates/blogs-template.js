@@ -1,27 +1,27 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { observer } from "mobx-react-lite";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import Markdown from "react-markdown";
 
 import LayoutMain from "_layouts/LayoutMain";
 import { PageContainer, Title } from "shared/ui";
-import { ContextApp } from "stateManager/store";
+
+import useGlobalStore from "shared/hooks/useGlobalStore";
 
 const BlogTemplate = ({ data }) => {
-  const {
-    state: { isRu },
-  } = React.useContext(ContextApp);
+  const { lang } = useGlobalStore();
   const { content, title, content_eng, title_eng } = data.blogs;
 
   return (
     <LayoutMain seoData={data.blogs}>
       <PageContainer>
-        <Title title={title} isRu={isRu} title_eng={title_eng} />
+        <Title title={title} title_eng={title_eng} />
         <article className="contentMarkdown">
-          <Markdown children={isRu ? content : content_eng} />
+          <Markdown children={lang.isRuLang ? content : content_eng} />
         </article>
         <AniLink swipe direction="right" to="/blog" className="btn center-btn">
-          {isRu ? "Смотреть еще" : "Show more"}
+          {lang.isRuLang ? "Смотреть еще" : "Show more"}
         </AniLink>
       </PageContainer>
     </LayoutMain>
@@ -41,4 +41,4 @@ export const query = graphql`
   }
 `;
 
-export default BlogTemplate;
+export default observer(BlogTemplate);

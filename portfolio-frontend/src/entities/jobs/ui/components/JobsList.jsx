@@ -18,7 +18,7 @@ const JobsList = ({ nodes, isRu }) => {
           );
         })}
       </div>
-      <JobsArticle dataInfo={nodes[value]} isRu={isRu} />
+      <JobsArticle dataInfo={nodes[value]} />
     </div>
   );
 };

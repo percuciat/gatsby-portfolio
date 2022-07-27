@@ -1,29 +1,33 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
 import { GatsbyImage } from "gatsby-plugin-image";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
+import useGlobalStore from "shared/hooks/useGlobalStore";
 
-const Project = ({
-  isRu,
-  title,
-  title_eng,
-  image,
-  slug,
-  shortDescription,
-  shortDescription_eng,
-}) => {
+const Project = (props) => {
+  const {
+    title,
+    title_eng,
+    image,
+    slug,
+    shortDescription,
+    shortDescription_eng,
+  } = props;
+  const { lang } = useGlobalStore();
+  
   return (
     <>
       <figure className="projects__item">
         <GatsbyImage
           image={image.localFile.childImageSharp.gatsbyImageData}
           className="projects__img"
-          alt={isRu ? title : title_eng}
+          alt={lang.isRuLang ? title : title_eng}
         />
         <figcaption className="projects__info">
-          <h3>{isRu ? title : title_eng}</h3>
+          <h3>{lang.isRuLang ? title : title_eng}</h3>
           <p className="projects__description">
-            {isRu ? shortDescription : shortDescription_eng}
+            {lang.isRuLang ? shortDescription : shortDescription_eng}
           </p>
           <AniLink
             swipe
@@ -31,7 +35,7 @@ const Project = ({
             to={`/projects/${slug}`}
             className="projects__link"
           >
-            {isRu ? "Узнать подробнее" : "Read more"}
+            {lang.isRuLang ? "Узнать подробнее" : "Read more"}
           </AniLink>
         </figcaption>
       </figure>
@@ -39,4 +43,4 @@ const Project = ({
   );
 };
 
-export default Project;
+export default observer(Project);

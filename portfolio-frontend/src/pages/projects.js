@@ -1,10 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
+
 import LayoutMain from "_layouts/LayoutMain";
 import { ProjectList } from "_pages";
 import { PageContainer } from "shared/ui/";
 
-const ProjectsPage = React.memo(({ data }) => {
+const ProjectsPage = ({ data }) => {
   const {
     allStrapiProjects: { nodes: projects },
     allStrapiPortfolio: { nodes },
@@ -16,7 +17,7 @@ const ProjectsPage = React.memo(({ data }) => {
       </PageContainer>
     </LayoutMain>
   );
-});
+};
 export const query = graphql`
   {
     allStrapiProjects {
@@ -56,4 +57,4 @@ export const query = graphql`
   }
 `;
 
-export default ProjectsPage;
+export default React.memo(ProjectsPage);

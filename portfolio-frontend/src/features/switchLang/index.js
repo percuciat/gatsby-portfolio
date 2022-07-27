@@ -1,5 +1,4 @@
-import { SwitchLang } from "./ui/SwitcherLang";
+import SwitcherLang from "./ui/SwitcherLang";
+import { LangStore } from "./model";
 
-export * as switchLangModel from "./model";
-
-export { SwitchLang };
+export { SwitcherLang, LangStore };

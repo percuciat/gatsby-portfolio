@@ -1,18 +1,20 @@
-// title={globalUIStore.isRu ? "Сменить тему" : "Change theme"}
-// switcher--theme
-// <span className={`${globalUIStore.isDark ? "active" : ""} flag`}>
-
-import React, { useCallback } from "react";
-import { Switcher } from "shared/ui";
+import React from "react";
 import { observer } from "mobx-react-lite";
+import { Switcher } from "shared/ui";
+
+import useGlobalStore from "shared/hooks/useGlobalStore";
 
 const SwitcherTheme = () => {
-  // globalUIStore.isRu ? "Сменить язык" : "Change language"
-  // ${!globalUIStore.isRu && "active"
+  const { theme, lang } = useGlobalStore();
   return (
-    <Switcher customClass="switcher--theme" title="Сменить тему">
+    <Switcher
+      customClass="switcher--theme"
+      title={lang.isRuLang ? "Сменить тему" : "Change theme"}
+      handler={theme.toggleDarkMode}
+      activeClass={`${theme.isDarkMode ? "active" : ""} flag`}
+    >
       <svg
-        className="flag__icon"
+        className={`flag__icon`}
         viewBox="0 0 313 312"
         xmlns="http://www.w3.org/2000/svg"
       >

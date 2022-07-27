@@ -1,19 +1,20 @@
 import React, { useRef, useState, useEffect } from "react";
+import { observer } from "mobx-react-lite";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { FaAlignRight } from "react-icons/fa";
-import { openMenu } from "stateManager/actions";
 
 import { SwitcherLang } from "features/switchLang";
 import { SwitcherTheme } from "features/switchTheme";
+
 import { MenuLinks } from "shared/ui";
+import useGlobalStore from "shared/hooks/useGlobalStore";
 
 import { NAME_LOGO, TABLET_MEDIA, MOBILE_MEDIA } from "consts";
 import { isCorrectMediaScreen } from "shared/lib/isCorrectMediaScreen";
 
-import { observer } from "mobx-react-lite";
 
 const Header = (props) => {
-  const { globalUIStore } = props;
+  const { lang, theme } = useGlobalStore();
   const $header = useRef(null);
   const [isSticky, setSteaky] = useState(false);
 
@@ -30,11 +31,11 @@ const Header = (props) => {
     /* dispatch(openMenu(!toggleSidebar)); */
     document.body.style.overflow = "hidden";
   };
-
+  // ${globalUIStore.isDark ? "dark" : "" }
   return (
     <header
       ref={$header}
-      className={`${globalUIStore.isDark ? "dark" : ""} header ${
+      className={`header ${theme.isDarkMode ? "dark" : ""} ${
         isSticky ? "sticky" : ""
       }`}
     >

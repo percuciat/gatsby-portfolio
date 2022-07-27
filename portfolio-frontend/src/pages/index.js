@@ -1,11 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Services, Jobs, ProjectList, BlogList } from "entities";
-import { Preview } from "_pages";
+
+import { Services, Jobs } from "entities";
+import { Preview, ProjectList, BlogList } from "_pages";
 import LayoutMain from "_layouts/LayoutMain/";
 import { PageContainer } from "shared/ui";
 
-const UIIndexPage = ({ data }) => {
+const MainPage = ({ data }) => {
   const {
     allStrapiProjects: { nodes: projects },
     allStrapiBlogs: { nodes: blogItem },
@@ -13,7 +14,7 @@ const UIIndexPage = ({ data }) => {
 
   return (
     <LayoutMain>
-      {/*  <Preview /> */}
+      <Preview />
       <PageContainer>
         <Services />
       </PageContainer>
@@ -80,4 +81,4 @@ export const query = graphql`
   }
 `;
 
-export default UIIndexPage;
+export default MainPage;

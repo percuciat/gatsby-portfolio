@@ -1,21 +1,22 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { observer } from "mobx-react-lite";
 
 import LayoutMain from "_layouts/LayoutMain";
 import { PageContainer, Title } from "shared/ui";
 import { ProjectSingle } from "_pages";
-import { ContextApp } from "stateManager/store";
 
-const ComponentProject = ({ data }) => {
-  const {
-    state: { isRu },
-  } = useContext(ContextApp);
+import useGlobalStore from "shared/hooks/useGlobalStore";
+
+const ProjectTemplate = ({ data }) => {
+  const { lang } = useGlobalStore();
   const { title, title_eng } = data.projects;
+
   return (
     <LayoutMain seoData={data.projects}>
       <PageContainer>
-        <Title title={title} isRu={isRu} title_eng={title_eng} />
+        <Title title={title} title_eng={title_eng} />
         <ProjectSingle {...data.projects} />
         <AniLink
           swipe
@@ -23,7 +24,7 @@ const ComponentProject = ({ data }) => {
           to="/projects"
           className="btn center-btn"
         >
-          {isRu ? "Смотреть еще" : "Show more"}
+          {lang.isRuLang ? "Смотреть еще" : "Show more"}
         </AniLink>
       </PageContainer>
     </LayoutMain>
@@ -52,4 +53,4 @@ export const query = graphql`
   }
 `;
 
-export default ComponentProject;
+export default observer(ProjectTemplate);

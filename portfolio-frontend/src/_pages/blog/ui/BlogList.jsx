@@ -1,11 +1,15 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import { observer } from "mobx-react-lite";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
-import useFilterCategory from "shared/hooks/useFilterCategory";
+
 import BlogItem from "./BlogItem";
 import { Title, FilterSection } from "shared/ui/";
 
-const BlogList = ({ isRu, blogItem, showLink }) => {
+import useFilterCategory from "shared/hooks/useFilterCategory";
+import useGlobalStore from "shared/hooks/useGlobalStore";
+
+const BlogList = (props) => {
   const {
     allStrapiBlogsCategories: { nodes },
   } = useStaticQuery(graphql`
@@ -20,9 +24,10 @@ const BlogList = ({ isRu, blogItem, showLink }) => {
       }
     }
   `);
-
+  const { blogItem, showLink } = props;
   const { filterHandler, filteredData, activeCategoryName } =
     useFilterCategory(blogItem);
+  const { lang } = useGlobalStore();
 
   const titleRu = "Блог";
   const titleEng = "Blog";
@@ -30,22 +35,23 @@ const BlogList = ({ isRu, blogItem, showLink }) => {
 
   return (
     <>
-      <Title title={titleRu} isRu={isRu} title_eng={titleEng} />
+      <Title title={titleRu} title_eng={titleEng} />
       {!showLink && (
         <FilterSection
           activeCategory={activeCategoryName}
           filterItems={nodes}
-          isRu={isRu}
           changeCategory={filterHandler}
         />
       )}
       <ul className="blog__wrapper">
         {filterLength > 0 ? (
           filteredData.map((blog) => {
-            return <BlogItem key={blog.strapiId} isRu={isRu} {...blog} />;
+            return <BlogItem key={blog.strapiId} {...blog} />;
           })
         ) : (
-          <li>{isRu ? "Нет статей по данной тематике" : "Not articles"}</li>
+          <li>
+            {lang.isRuLang ? "Нет статей по данной тематике" : "Not articles"}
+          </li>
         )}
       </ul>
       {showLink && (
@@ -57,11 +63,11 @@ const BlogList = ({ isRu, blogItem, showLink }) => {
           activeClassName="current"
           className="btn center-btn"
         >
-          {isRu ? "Смотреть больше" : "Show more"}
+          {lang.isRuLang ? "Смотреть больше" : "Show more"}
         </AniLink>
       )}
     </>
   );
 };
 
-export default BlogList;
+export default observer(BlogList);

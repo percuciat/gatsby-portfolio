@@ -1,7 +1,11 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import { observer } from "mobx-react-lite";
+
 import { FaCode, FaReact, FaCog } from "react-icons/fa";
 import Markdown from "react-markdown";
+
+import useGlobalStore from "shared/hooks/useGlobalStore";
 
 const ServicesData = [
   <FaReact className="service__icon" />,
@@ -9,7 +13,8 @@ const ServicesData = [
   <FaCode className="service__icon" />,
 ];
 
-const ServicesItems = ({ isRu }) => {
+const ServicesItems = (props) => {
+  const { lang } = useGlobalStore();
   const {
     allStrapiServices: { nodes },
   } = useStaticQuery(graphql`
@@ -33,10 +38,12 @@ const ServicesItems = ({ isRu }) => {
           <li key={serviceItem.id} className="service__item bg-grey">
             {ServicesData[index]}
             <h3 className="service__title">
-              {isRu ? serviceItem.title : serviceItem.title_eng}
+              {lang.isRuLang ? serviceItem.title : serviceItem.title_eng}
             </h3>
             <Markdown
-              children={isRu ? serviceItem.content : serviceItem.content_eng}
+              children={
+                lang.isRuLang ? serviceItem.content : serviceItem.content_eng
+              }
             />
           </li>
         );
@@ -45,4 +52,4 @@ const ServicesItems = ({ isRu }) => {
   );
 };
 
-export default ServicesItems;
+export default observer(ServicesItems);

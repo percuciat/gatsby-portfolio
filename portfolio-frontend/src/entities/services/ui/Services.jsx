@@ -2,15 +2,13 @@ import React from "react";
 import ServicesItems from "./components/ServicesItems";
 import { Title } from "shared/ui/";
 
-/* import "../services.scss"; */
-
-const Services = ({ isRu }) => {
+const Services = (props) => {
   const titleRu = "Что умею";
   const titleEng = "Skills";
   return (
     <>
-      <Title title={titleRu} isRu={isRu} title_eng={titleEng} />
-      <ServicesItems isRu={isRu} />
+      <Title title={titleRu} title_eng={titleEng} />
+      <ServicesItems />
     </>
   );
 };

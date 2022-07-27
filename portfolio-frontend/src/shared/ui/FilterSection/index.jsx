@@ -1,11 +1,10 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
+import useGlobalStore from "shared/hooks/useGlobalStore";
 
-const FilterSection = ({
-  isRu,
-  filterItems,
-  activeCategory,
-  changeCategory,
-}) => {
+const FilterSection = (props) => {
+  const { filterItems, activeCategory, changeCategory } = props;
+  const { lang } = useGlobalStore();
   return (
     <div className="filter__list-wrapper">
       <ul className="filter__list">
@@ -18,7 +17,7 @@ const FilterSection = ({
                 } filter__list-btn btn`}
                 onClick={() => changeCategory(item.title)}
               >
-                {isRu ? item.name : item.name_eng}
+                {lang.isRuLang ? item.name : item.name_eng}
               </button>
             </li>
           );
@@ -28,4 +27,4 @@ const FilterSection = ({
   );
 };
 
-export default FilterSection;
+export default observer(FilterSection);

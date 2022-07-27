@@ -1,16 +1,12 @@
-import { action, decorate, observable } from "mobx";
+import { action, makeAutoObservable, observable } from "mobx";
 
-const ThemeStore = {
-  isDarkMode: false,
-
-  toggleDarkMode() {
+export class ThemeStore {
+  isDarkMode = false;
+  constructor() {
+    makeAutoObservable(this);
+  }
+  toggleDarkMode = () => {
     this.isDarkMode = !this.isDarkMode;
-  },
+    console.log("theme--click");
+  }
 };
-
-decorate(ThemeStore, {
-  isDarkMode: observable,
-  toggleDarkMode: action,
-});
-
-export default ThemeStore;

@@ -1,15 +1,14 @@
 import React, { useEffect, useContext } from "react";
+import { observer } from "mobx-react-lite";
 import App from "app";
 
 import { Header, Sidebar, Footer, Seo } from "widgets";
-/* import { ContextApp } from "stateManager/store";
-import { setWindowSize } from "stateManager/actions"; */
 import { useResizeWindow } from "shared/hooks/useResizeWindow";
 
-import { GlobalUiStore } from "app/model";
-import { observer } from "mobx-react-lite";
+import useGlobalStore from "shared/hooks/useGlobalStore";
 
 const LayoutMain = ({ seoData, children }) => {
+  const { theme } = useGlobalStore();
   /*  const {
     state: { isRu, isDark, isMenuOpen, widthScreen },
     dispatch,
@@ -26,11 +25,10 @@ const LayoutMain = ({ seoData, children }) => {
       <>
         <Seo seoData={seoData} />
         <Header
-          globalUIStore={GlobalUiStore}
-          /* toggleSidebar={isMenuOpen} */
-          /*  isDark={isDark} */
-          /* widthScreen={widthScreen} */
-          /*  isRu={isRu}
+        /* toggleSidebar={isMenuOpen} */
+        /*  isDark={isDark} */
+        /* widthScreen={widthScreen} */
+        /*  isRu={isRu}
           dispatch={dispatch} */
         />
         {/*  {isMenuOpen && (
@@ -39,9 +37,9 @@ const LayoutMain = ({ seoData, children }) => {
             isRu={isRu}
             isDark={isDark}
             dispatch={dispatch} 
-          />  ${isDark ? "darkSecondary" : "" }
+          />  
         )} */}
-        <main className={` main`}>
+        <main className={`${theme.isDarkMode ? "darkSecondary" : ""} main`}>
           {children}
           {/*  {React.Children.map(children, (child) => {
             return React.cloneElement(child, { });

@@ -1,4 +1,4 @@
-import { SwitchTheme } from "./ui/SwitcherTheme";
+import SwitcherTheme from "./ui/SwitcherTheme";
+import { ThemeStore } from "./model";
 
-export * as switchThemeModel from "./model";
-export { SwitchTheme };
+export { SwitcherTheme, ThemeStore };

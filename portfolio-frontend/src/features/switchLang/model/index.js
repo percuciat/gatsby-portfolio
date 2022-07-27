@@ -1,16 +1,12 @@
-import { action, decorate, observable } from "mobx";
+import { action, observable, makeAutoObservable } from "mobx";
 
-const LangStore = {
-  isRuLang: true,
-
-  toggleRuLang() {
+export class LangStore {
+  isRuLang = true;
+  constructor() {
+    makeAutoObservable(this);
+  }
+  toggleRuLang = () => {
     this.isRuLang = !this.isRuLang;
-  },
-};
-
-decorate(LangStore, {
-  isRuLang: observable,
-  toggleRuLang: action,
-});
-
-export default LangStore;
+    console.log("change--RuLang");
+  };
+}

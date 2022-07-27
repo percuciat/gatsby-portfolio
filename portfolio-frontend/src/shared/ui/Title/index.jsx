@@ -1,13 +1,16 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
+import useGlobalStore from "shared/hooks/useGlobalStore";
 
-const Title = ({ isRu, title, title_eng }) => {
+const Title = ({ title, title_eng }) => {
+  const { lang } = useGlobalStore();
   return (
     <div className="section-title">
       <h2 className="section-title__text">
-        {isRu ? title || "default title" : title_eng}
+        {lang.isRuLang ? title || "Default title" : title_eng}
       </h2>
     </div>
   );
 };
 
-export default React.memo(Title);
+export default observer(Title);

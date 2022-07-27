@@ -1,12 +1,15 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
+import useGlobalStore from "shared/hooks/useGlobalStore";
 
-const ErrorForm = ({ isRu }) => {
+const ErrorForm = (props) => {
   const text = "Произошла ошибка при отправке...";
   const textEng = "Sorry, error has happened...";
+  const { lang } = useGlobalStore();
   return (
     <div className="errorMsg">
       <p className="errorMsg__text">
-        {isRu ? text : textEng}{" "}
+        {lang.isRuLang ? text : textEng}{" "}
         <span role="img" aria-label="error">
           😔
         </span>
@@ -15,4 +18,4 @@ const ErrorForm = ({ isRu }) => {
   );
 };
 
-export default ErrorForm;
+export default observer(ErrorForm);

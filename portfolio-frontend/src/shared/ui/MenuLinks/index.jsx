@@ -1,7 +1,10 @@
 import React from "react";
 import { graphql, Link, useStaticQuery } from "gatsby";
+import { observer } from "mobx-react-lite";
+import useGlobalStore from "shared/hooks/useGlobalStore";
 
-const MenuLinks = ({ asideLinks, closeMenuAfterLinking, isRu }) => {
+const MenuLinks = (props) => {
+  const { asideLinks, closeMenuAfterLinking } = props;
   const {
     strapiGlobal: { menuTop },
   } = useStaticQuery(graphql`
@@ -16,6 +19,7 @@ const MenuLinks = ({ asideLinks, closeMenuAfterLinking, isRu }) => {
       }
     }
   `);
+  const { lang } = useGlobalStore();
   return (
     <ul
       className={`${asideLinks ? "sidebar-links" : "page-links menu__links"}`}
@@ -29,7 +33,7 @@ const MenuLinks = ({ asideLinks, closeMenuAfterLinking, isRu }) => {
               onClick={closeMenuAfterLinking}
               to={link.url}
             >
-              {isRu ? link.text : link.text_eng}
+              {lang.isRuLang ? link.text : link.text_eng}
             </Link>
           </li>
         );
@@ -38,4 +42,4 @@ const MenuLinks = ({ asideLinks, closeMenuAfterLinking, isRu }) => {
   );
 };
 
-export default MenuLinks;
+export default observer(MenuLinks);

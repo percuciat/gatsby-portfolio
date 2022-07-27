@@ -1,8 +1,11 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
+import useGlobalStore from "shared/hooks/useGlobalStore";
 
-const SuccessForm = ({ isRu }) => {
+const SuccessForm = (props) => {
   const text = "Ваше сообщение успешно отправлено.";
   const textEng = "Your message has been successfully sent.";
+  const { lang } = useGlobalStore();
   return (
     <>
       <div className="successForm">
@@ -21,20 +24,20 @@ const SuccessForm = ({ isRu }) => {
           />
         </svg>
         <h4 className="successForm__title">
-          {isRu ? "Отлично!" : "Excellent!"}
+          {lang.isRuLang ? "Отлично!" : "Excellent!"}
         </h4>
-        <p className="successForm__text">{isRu ? text : textEng}</p>
+        <p className="successForm__text">{lang.isRuLang ? text : textEng}</p>
         <a
           href="https://t.me/percuciat"
           rel="noreferrer"
           target="_blank"
           className="btn"
         >
-          {isRu ? "Написать в телеграм" : "Write on Telegram"}
+          {lang.isRuLang ? "Написать в телеграм" : "Write on Telegram"}
         </a>
       </div>
     </>
   );
 };
 
-export default SuccessForm;
+export default observer(SuccessForm);

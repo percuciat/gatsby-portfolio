@@ -3,7 +3,7 @@ import { post } from "shared/api";
 import { Form } from "entities";
 import { SuccessForm, ErrorForm, PreloaderForm } from "shared/ui";
 
-const ContactForm = ({ isRu }) => {
+const ContactForm = (props) => {
   const [sendStatus, setSendStatus] = useState("");
   const submitForm = (e, data) => {
     e.preventDefault();
@@ -23,13 +23,13 @@ const ContactForm = ({ isRu }) => {
 
   switch (sendStatus) {
     case "success":
-      return <SuccessForm isRu={isRu} />;
+      return <SuccessForm />;
     case "sending":
-      return <PreloaderForm isRu={isRu} />;
+      return <PreloaderForm />;
     case "error":
-      return <ErrorForm isRu={isRu} />;
+      return <ErrorForm />;
     default:
-      return <Form handleSubmitForm={submitForm} isRu={isRu} />;
+      return <Form handleSubmitForm={submitForm} />;
   }
 };
 

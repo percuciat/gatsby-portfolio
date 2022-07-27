@@ -1,31 +1,36 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
 import { GatsbyImage } from "gatsby-plugin-image";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
-const BlogItem = ({
-  isRu,
-  strapiId,
-  title,
-  title_eng,
-  image,
-  date,
-  category,
-  slug,
-  description,
-  description_eng,
-}) => {
+import useGlobalStore from "shared/hooks/useGlobalStore";
+
+const BlogItem = (props) => {
+  const {
+    strapiId,
+    title,
+    title_eng,
+    image,
+    date,
+    category,
+    slug,
+    description,
+    description_eng,
+  } = props;
+  const { lang } = useGlobalStore();
+
   return (
     <li key={strapiId} className="blog">
       <figure className="blog__item">
         <GatsbyImage
           image={image.localFile.childImageSharp.gatsbyImageData}
           className="blog__img"
-          alt={isRu ? title : title_eng}
+          alt={lang.isRuLang ? title : title_eng}
         />
         <figcaption className="blog__card">
-          <h3>{isRu ? title : title_eng}</h3>
+          <h3>{lang.isRuLang ? title : title_eng}</h3>
           <p className="blog__card-text">
-            {isRu ? description : description_eng}
+            {lang.isRuLang ? description : description_eng}
           </p>
           <div className="blog__footer">
             <p className="footer-item footer-category">{category}</p>
@@ -37,7 +42,7 @@ const BlogItem = ({
             to={`/blog/${slug}`}
             className="blog__card-btn"
           >
-            {isRu ? "Читать подробнее" : "Read more"}
+            {lang.isRuLang ? "Читать подробнее" : "Read more"}
           </AniLink>
         </figcaption>
       </figure>
@@ -45,4 +50,4 @@ const BlogItem = ({
   );
 };
 
-export default BlogItem;
+export default observer(BlogItem);

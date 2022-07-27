@@ -1,6 +1,9 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
+import useGlobalStore from "shared/hooks/useGlobalStore";
 
-const PreloaderForm = ({ isRu }) => {
+const PreloaderForm = () => {
+  const { lang } = useGlobalStore();
   return (
     <>
       <div className="preloaderForm__wrapper">
@@ -10,10 +13,14 @@ const PreloaderForm = ({ isRu }) => {
           <div className="preloaderForm__container-item blue" />
           <div className="preloaderForm__container-item violet" />
         </div>
-        <p>{isRu ? "Сообщение отправляется..." : "Message is sending..."}</p>
+        <p>
+          {lang.isRuLang
+            ? "Сообщение отправляется..."
+            : "Message is sending..."}
+        </p>
       </div>
     </>
   );
 };
 
-export default PreloaderForm;
+export default observer(PreloaderForm);
