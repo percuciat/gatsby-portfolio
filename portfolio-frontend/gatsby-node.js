@@ -4,7 +4,7 @@ const path = require("path");
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const  result   = await graphql(`
+  const result = await graphql(`
     {
       blogs: allStrapiBlogs {
         nodes {
@@ -14,40 +14,40 @@ exports.createPages = async ({ graphql, actions }) => {
 
       projects: allStrapiProjects {
         nodes {
-           slug
+          slug
         }
       }
     }
   `);
 
-  result.data.blogs.nodes.forEach(blog => {
+  result.data.blogs.nodes.forEach((blog) => {
     createPage({
       path: `/blog/${blog.slug}`,
       component: path.resolve(`src/templates/blogs-template.js`),
       context: {
         slug: blog.slug,
       },
-    })
+    });
   });
-  result.data.projects.nodes.forEach(project => {
+  result.data.projects.nodes.forEach((project) => {
     createPage({
       path: `/projects/${project.slug}`,
       component: path.resolve(`src/templates/projects-template.js`),
       context: {
         slug: project.slug,
       },
-    })
+    });
   });
 };
 
 // add polifill for markdown react
-exports.onCreateWebpackConfig = ({actions}) => {
+exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       fallback: {
-        assert: require.resolve('assert/'),
-        path: require.resolve('path-browserify'),
+        assert: require.resolve("assert/"),
+        path: require.resolve("path-browserify"),
       },
-    }
-  })
+    },
+  });
 };

@@ -1,39 +1,51 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
-
 ## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
+1.  **Launch backend**
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+    Use the Strapi for loading admin panel, then sign up and login. Add roles and permisions for your account:
+
+    ![Strapi Admin panel](./src/images/readme.jpg?raw=true "Title")
+
+    Also, you can check your working API from Admin panel. For this actions, you should add correct `collection` with name - `About` for example.
+    
+    ![Strapi Admin panel](./src/images/readme2.jpg?raw=true "Title")
+
+     Then try to load your data, URL will be like this: `http://localhost:1337/about`
 
     ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
-
-2.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
-
-    ```shell
-    cd my-gatsby-site/
+    # cd portfolio-backend
     npm run develop
     ```
 
-3.  **Open the code and start customizing!**
+2.  **Launch frontend**
 
-    Your site is now running at http://localhost:8000!
+    Before starting - correctly fill config in `gatsby-config.js`.
+    You should write your data from Strapi admin into `gatsby-source-strapi`.
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+    ```shell
+     resolve: "gatsby-source-strapi",
+      options: {
+        apiURL: "http://localhost:1337",
+        collectionTypes: [
+          "jobs",
+          "projects",
+          "projects-categories",
+          "blogs",
+          "blogs-categories",
+          "services",
+        ],
+        singleTypes: ["about", "portfolio", "blog-page", "contact", "global"],
+        queryLimit: 20,
+      }
+    ```
+    `collectionTypes` - type of multi (posts) Data.
+    `singleTypes` - type of single (single post) Data.
 
-4.  **Learn more**
+    ```shell
+    npm run develop
+    ```
+
+    **Gatsby Documentation**
 
     - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
@@ -46,9 +58,3 @@
     - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
     - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)

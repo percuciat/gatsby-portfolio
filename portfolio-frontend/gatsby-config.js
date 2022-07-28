@@ -70,16 +70,6 @@ module.exports = {
         queryLimit: 20,
       },
       __key: "pages",
-    },
-    /* {
-      resolve: "gatsby-source-graphql",
-      options: {
-        // Arbitrary name for the remote schema Query type
-        typeName: "STRAPI",
-        // Field for remote schema. You'll use this in your Gatsby query
-        fieldName: "strapi",
-        url: `${process.env.GATSBY_STRAPI_GRAPHQL_ENDPOINT}/graphql`,
-      },
-    },*/
+    }
   ],
 };
