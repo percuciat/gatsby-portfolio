@@ -7,6 +7,5 @@ export class LangStore {
   }
   toggleRuLang = () => {
     this.isRuLang = !this.isRuLang;
-    console.log("change--RuLang");
   };
 }

@@ -7,6 +7,5 @@ export class ThemeStore {
   }
   toggleDarkMode = () => {
     this.isDarkMode = !this.isDarkMode;
-    console.log("theme--click");
   }
 };
