@@ -3,6 +3,7 @@
   box-shadow: var(--light-shadow);
   background: var(--whiteColor);
   &__wrapper {
+    padding: 1rem 0;
     display: flex;
     justify-content: space-between;
   }
@@ -17,16 +18,3 @@
   transition: all 0.5s;
 }
 
-.toggleBtn {
-  order: 3;
-  font-size: 2rem;
-  line-height: 1rem;
-  background: transparent;
-  border-color: transparent;
-  color: var(--attentionColor);
-  cursor: pointer;
-  transition: var(--transition);
-  &:hover {
-    color: var(--attentionColor);
-  }
-}

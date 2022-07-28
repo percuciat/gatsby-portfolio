@@ -1,4 +1,5 @@
 import Title from "./Title";
+import Logo from "./Logo";
 import SuccessForm from "./SuccessForm";
 import Switcher from "./Switcher";
 import PreloaderForm from "./PreloaderForm";
@@ -11,6 +12,7 @@ import PageContainer from "./PageContainer";
 
 export {
   Title,
+  Logo,
   ErrorForm,
   InputField,
   PreloaderForm,

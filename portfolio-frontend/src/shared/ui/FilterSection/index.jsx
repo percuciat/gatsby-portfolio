@@ -5,6 +5,7 @@ import useGlobalStore from "shared/hooks/useGlobalStore";
 const FilterSection = (props) => {
   const { filterItems, activeCategory, changeCategory } = props;
   const { lang } = useGlobalStore();
+
   return (
     <div className="filter__list-wrapper">
       <ul className="filter__list">

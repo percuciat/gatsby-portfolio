@@ -1,6 +1,6 @@
 import React from "react";
 
-const PageContainer = ({ children, isRu, isGrey }) => {
+const PageContainer = ({ children, isGrey }) => {
   return (
     <section className={`${isGrey ? "bg-grey" : ""} section`}>
       <div className="container">

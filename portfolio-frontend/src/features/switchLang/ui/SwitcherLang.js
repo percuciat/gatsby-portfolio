@@ -10,7 +10,7 @@ const SwitcherLang = () => {
       customClass="switcher--lang"
       title={lang.isRuLang ? "Сменить язык" : "Change language"}
       handler={lang.toggleRuLang}
-      activeClass={!lang.isRuLang && "active"}
+      activeClass={!lang.isRuLang ? "active" : ""}
     />
   );
 };

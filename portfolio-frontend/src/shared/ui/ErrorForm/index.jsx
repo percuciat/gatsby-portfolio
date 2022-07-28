@@ -6,6 +6,7 @@ const ErrorForm = (props) => {
   const text = "Произошла ошибка при отправке...";
   const textEng = "Sorry, error has happened...";
   const { lang } = useGlobalStore();
+
   return (
     <div className="errorMsg">
       <p className="errorMsg__text">

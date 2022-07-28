@@ -27,9 +27,13 @@
   color: var(--attentionColor);
   font-weight: bold;
 }
+
 @media screen and (max-width: 576px) {
   .preview__wrapper {
     padding: 30px 15px;
     grid-template-columns: 1fr;
+  }
+  .preview__img {
+    display: none;
   }
 }

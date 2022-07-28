@@ -3,9 +3,7 @@ import { observer } from "mobx-react-lite";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-import { isCorrectMediaScreen } from "shared/lib/isCorrectMediaScreen";
 import { SocialLinks } from "shared/ui/";
-import { TABLET_MINI_MEDIA } from "consts";
 
 import useGlobalStore from "shared/hooks/useGlobalStore";
 
@@ -43,13 +41,6 @@ const Preview = (props) => {
           </Link>
           <SocialLinks />
         </div>
-        {/* {isCorrectMediaScreen(+widthScreen, TABLET_MINI_MEDIA.name) && (
-          <GatsbyImage
-            image={gatsbyImageData}
-            className="preview__img"
-            alt="my Photo"
-          />
-        )} */}
         <GatsbyImage
           image={gatsbyImageData}
           className="preview__img"
