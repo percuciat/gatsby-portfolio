@@ -1,5 +1,5 @@
-import React, { createContext, useContext } from "react";
-import { makeAutoObservable, configure } from "mobx";
+import React, { createContext } from "react";
+import { configure } from "mobx";
 import { LangStore } from "features/switchLang";
 import { ThemeStore } from "features/switchTheme";
 /* configure({ enforceActions: "observed" }); */
@@ -13,7 +13,7 @@ class RootStore {
 
 const store = new RootStore();
 
-export const GlobalContext = createContext(null);
+export const GlobalContext = createContext(store);
 
 export const GlobalContextProvider = ({ children }) => {
   return (

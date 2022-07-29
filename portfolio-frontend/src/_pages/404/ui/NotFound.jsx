@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { Link } from "gatsby";
 import { observer } from "mobx-react-lite";
 
@@ -12,7 +12,7 @@ const NotFound = () => {
 
   return (
     <div className="notFound">
-      <div className="cont__principal" tabIndex="0">
+      <div className="cont__principal">
         <div className="notFound__number">404</div>
         <div className="cont__error">
           <p className="notFound__title">

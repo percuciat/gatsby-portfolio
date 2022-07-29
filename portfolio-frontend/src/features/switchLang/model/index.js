@@ -1,4 +1,4 @@
-import { action, observable, makeAutoObservable } from "mobx";
+import { makeAutoObservable } from "mobx";
 
 export class LangStore {
   isRuLang = true;

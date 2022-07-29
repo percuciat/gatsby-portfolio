@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { observer } from "mobx-react-lite";
 import { MenuLinks, SocialLinks } from "shared/ui";
 import { FaAlignRight, FaTimes } from "react-icons/fa";
@@ -6,9 +6,10 @@ import { FaAlignRight, FaTimes } from "react-icons/fa";
 import useGlobalStore from "shared/hooks/useGlobalStore";
 
 const Sidebar = (props) => {
+  const isBrowser = typeof window !== "undefined";
   const { theme, lang } = useGlobalStore();
   const [isClose, setClose] = useState(true);
-  const $body = useRef(document.body);
+  const $body = useRef(isBrowser ? document.body : null);
 
   const handleOpenMenu = () => {
     setClose(false);
@@ -19,6 +20,10 @@ const Sidebar = (props) => {
     setClose(true);
     $body.current.style = "";
   };
+
+  useEffect(() => {
+    return () => ($body.current.style = "");
+  }, []);
 
   if (isClose) {
     return (
