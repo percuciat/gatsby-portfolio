@@ -1,0 +1,40 @@
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.section {
+  padding: 4rem 0;
+  background: var(--whiteColor);
+}
+
+.bg-grey {
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(246, 238, 255, 1) 100%
+  );
+}
+
+@media screen and (max-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+  .section {
+    padding: 2rem 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .container {
+    max-width: 540px;
+  }
+}

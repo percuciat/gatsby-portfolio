@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_elements_ivcs",
+  "info": {
+    "name": "ivc",
+    "icon": "laptop-code"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "desctiptin": {
+      "type": "string"
+    }
+  }
+}

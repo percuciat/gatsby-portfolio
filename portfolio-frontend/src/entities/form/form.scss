@@ -1,0 +1,25 @@
+.form {
+  margin: auto;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  background: var(--whiteColor);
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: var(--light-shadow);
+  transition: var(--transition);
+  width: 90vw;
+  max-width: 35rem;
+  &-group {
+    padding: 1rem 1.5rem;
+  }
+
+  .form-btn {
+    padding: 1rem;
+    display: block;
+    width: 100%;
+    &:disabled {
+      color: var(--attentionColor);
+      background: transparent;
+    }
+  }
+}

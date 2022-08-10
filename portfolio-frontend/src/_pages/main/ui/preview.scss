@@ -1,0 +1,39 @@
+.preview {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+    align-items: center;
+  }
+  .title {
+    background: linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(102, 51, 153, 1) 35%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  &__info {
+    position: relative;
+    .subtitle {
+      color: var(--clr-grey-5);
+    }
+    .btn {
+      margin-top: 1.25rem;
+    }
+  }
+}
+.subtitle-gradient {
+  color: var(--attentionColor);
+  font-weight: bold;
+}
+
+@media screen and (max-width: 576px) {
+  .preview__wrapper {
+    padding: 30px 15px;
+    grid-template-columns: 1fr;
+  }
+  .preview__img {
+    display: none;
+  }
+}
