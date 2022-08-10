@@ -1,8 +1,15 @@
 import React from "react";
+<<<<<<< HEAD
 import { graphql, useStaticQuery } from "gatsby";
 import { observer } from "mobx-react-lite";
 
 import AniLink from "gatsby-plugin-transition-link/AniLink";
+=======
+import { graphql, useStaticQuery, Link } from "gatsby";
+import { observer } from "mobx-react-lite";
+
+/* import AniLink from "gatsby-plugin-transition-link/AniLink"; */
+>>>>>>> temp
 import { Title, FilterSection } from "shared/ui/";
 import Project from "./Project";
 
@@ -61,6 +68,7 @@ const ProjectList = (props) => {
         )}
       </ul>
       {showLink && (
+<<<<<<< HEAD
         <AniLink
           swipe
           direction="left"
@@ -69,6 +77,11 @@ const ProjectList = (props) => {
         >
           {lang.isRuLang ? "Смотреть больше" : "Show more"}
         </AniLink>
+=======
+        <Link to="/projects" className="btn center-btn">
+          {lang.isRuLang ? "Смотреть больше" : "Show more"}
+        </Link>
+>>>>>>> temp
       )}
     </>
   );

@@ -22,7 +22,8 @@ const Sidebar = (props) => {
   };
 
   useEffect(() => {
-    return () => ($body.current.style = "");
+    let ref = $body.current;
+    return () => (ref.style = "");
   }, []);
 
   if (isClose) {

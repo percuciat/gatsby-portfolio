@@ -26,7 +26,7 @@ export const query = graphql`
         slug
         description
         description_eng
-        date(formatString: "Do MMMM, YYYY", locale: "ru")
+        date
         strapiId
         title
         title_eng

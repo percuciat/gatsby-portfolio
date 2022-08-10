@@ -1,6 +1,6 @@
 import React from "react";
-import { graphql } from "gatsby";
-import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { graphql, Link } from "gatsby";
+/* import AniLink from "gatsby-plugin-transition-link/AniLink"; */
 import { observer } from "mobx-react-lite";
 
 import LayoutMain from "_layouts/LayoutMain";
@@ -18,14 +18,9 @@ const ProjectTemplate = ({ data }) => {
       <PageContainer>
         <Title title={title} title_eng={title_eng} />
         <ProjectSingle {...data.projects} />
-        <AniLink
-          swipe
-          direction="right"
-          to="/projects"
-          className="btn center-btn"
-        >
-          {lang.isRuLang ? "Смотреть еще" : "Show more"}
-        </AniLink>
+        <Link to="/projects" className="btn center-btn">
+          {lang.isRuLang ? "Смотреть больше" : "Show more"}
+        </Link>
       </PageContainer>
     </LayoutMain>
   );

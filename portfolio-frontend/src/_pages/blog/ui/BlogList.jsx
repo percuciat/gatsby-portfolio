@@ -1,7 +1,13 @@
 import React from "react";
+<<<<<<< HEAD
 import { graphql, useStaticQuery } from "gatsby";
 import { observer } from "mobx-react-lite";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
+=======
+import { graphql, useStaticQuery, Link } from "gatsby";
+import { observer } from "mobx-react-lite";
+/* import AniLink from "gatsby-plugin-transition-link/AniLink"; */
+>>>>>>> temp
 
 import BlogItem from "./BlogItem";
 import { Title, FilterSection } from "shared/ui/";
@@ -55,16 +61,9 @@ const BlogList = (props) => {
         )}
       </ul>
       {showLink && (
-        <AniLink
-          swipe
-          direction="right"
-          to="/blog/"
-          partiallyActive={true}
-          activeClassName="current"
-          className="btn center-btn"
-        >
+        <Link to="/blog" className="btn center-btn">
           {lang.isRuLang ? "Смотреть больше" : "Show more"}
-        </AniLink>
+        </Link>
       )}
     </>
   );

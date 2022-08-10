@@ -63,7 +63,7 @@ export const query = graphql`
         content_eng
         description
         description_eng
-        date(formatString: "Do MMMM, YYYY", locale: "ru")
+        date
         slug
         title
         title_eng

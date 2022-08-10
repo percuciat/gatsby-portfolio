@@ -1,7 +1,7 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import { observer } from "mobx-react-lite";
-import AniLink from "gatsby-plugin-transition-link/AniLink";
+/* import AniLink from "gatsby-plugin-transition-link/AniLink"; */
 import Markdown from "react-markdown";
 
 import LayoutMain from "_layouts/LayoutMain";
@@ -20,9 +20,9 @@ const BlogTemplate = ({ data }) => {
         <div className="contentMarkdown">
           <Markdown children={lang.isRuLang ? content : content_eng} />
         </div>
-        <AniLink swipe direction="right" to="/blog" className="btn center-btn">
-          {lang.isRuLang ? "Смотреть еще" : "Show more"}
-        </AniLink>
+        <Link to="/blog" className="btn center-btn">
+          {lang.isRuLang ? "Смотреть больше" : "Show more"}
+        </Link>
       </PageContainer>
     </LayoutMain>
   );

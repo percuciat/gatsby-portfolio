@@ -1,7 +1,13 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
+<<<<<<< HEAD
 import { GatsbyImage } from "gatsby-plugin-image";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
+=======
+import { Link } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+/* import AniLink from "gatsby-plugin-transition-link/AniLink"; */
+>>>>>>> temp
 
 import useGlobalStore from "shared/hooks/useGlobalStore";
 
@@ -36,6 +42,7 @@ const BlogItem = (props) => {
             <p className="footer-item footer-category">{category}</p>
             <p className="footer-item">{date}</p>
           </div>
+<<<<<<< HEAD
           <AniLink
             swipe
             direction="left"
@@ -44,6 +51,11 @@ const BlogItem = (props) => {
           >
             {lang.isRuLang ? "Читать подробнее" : "Read more"}
           </AniLink>
+=======
+          <Link to={`/blog/${slug}`} className="blog__card-btn">
+            {lang.isRuLang ? "Читать подробнее" : "Read more"}
+          </Link>
+>>>>>>> temp
         </figcaption>
       </figure>
     </li>
