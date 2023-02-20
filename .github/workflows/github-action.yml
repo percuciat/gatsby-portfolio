@@ -18,6 +18,7 @@ jobs:
       - run: npm run build
   init-Frontend:
     runs-on: ubuntu-latest
+    needs: init-Backend
     defaults:
       run:
         working-directory: ./portfolio-frontend
